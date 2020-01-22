@@ -12,13 +12,11 @@ class App extends React.Component {
   };
 
   render() {
-    const { loggedIn } = this.state
+    const { loggedIn } = this.state;
     return (
       <div>
-        <Header loggedIn={ loggedIn }/>
-          <div>
-            {loggedIn ? <DashBoard /> : <LoginBody />}
-        </div>
+        <Header loggedIn={loggedIn} />
+        <div>{loggedIn ? <DashBoard /> : <LoginBody />}</div>
         <Footer />
       </div>
     );

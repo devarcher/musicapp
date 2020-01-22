@@ -13,42 +13,42 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 
-
 const LoginBody = () => {
   return (
+      <form className="formBox">
     <div className="mainContainer">
-      <Grid 
-        container 
+      <Grid
+        container
         spacing={2}
         direction="column"
-        alignItems="center" 
+        alignItems="center"
         justify="center"
-        style={{ minHeight: "60vh"}}>
-
-        
-        <Grid item xs={12}>
-          <TextField
-          required
-          id="outlined-required"
-          label="Required"
-          variant="outlined"
-          placeholder="User Name"
-          name="username"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Required"
-            variant="outlined"
-            placeholder="Password"
-            name="password"
-          />
-        </Grid>
+        style={{ minHeight: "60vh" }}
+      >
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="outlined-required"
+              label="Required"
+              variant="outlined"
+              placeholder="User Name"
+              name="username"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="outlined-required"
+              label="Required"
+              variant="outlined"
+              placeholder="Password"
+              name="password"
+            />
+          </Grid>
       </Grid>
     </div>
-  )
-}
+        </form>
+  );
+};
 
 export default LoginBody;
