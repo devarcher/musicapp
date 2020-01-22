@@ -8,9 +8,6 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles(theme => ({
-  menuButton: {
-    marginRight: theme.spacing(2)
-  },
   title: {
     flexGrow: 1
   }
@@ -25,16 +22,8 @@ export default function ButtonAppBar(props) {
     <div className={classes.root}>
       <AppBar>
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
+          <Typography variant="h5" className={classes.title}>
+            Music Things
           </Typography>
           <Button color="inherit">{loggedIn ? "LogOut" : ""}</Button>
         </Toolbar>

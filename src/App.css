@@ -14,8 +14,13 @@ body {
 .formBox {
   display: flex;
   flex-direction: column;
-  width: 90vw;
-  
+  border-radius: 6px;
+  width: 100%;
+  padding-bottom: 3rem;
+}
+
+.subButton {
+  width: 230px;
 }
 
 @media only screen and (min-width: 600px) {
@@ -33,7 +38,7 @@ body {
 @media only screen and (min-width: 1200px) {
   .formBox {
     width: 30vw;
-  } 
+  }
 }
 
 @media only screen and (min-width: 1800px) {
