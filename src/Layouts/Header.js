@@ -8,6 +8,9 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
 const useStyles = makeStyles(theme => ({
+  aBar: {
+    backgroundColor: "#80A690"
+  },
   title: {
     flexGrow: 1
   }
@@ -20,7 +23,7 @@ export default function ButtonAppBar(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar>
+      <AppBar className={classes.aBar}>
         <Toolbar>
           <Typography variant="h5" className={classes.title}>
             Music Things

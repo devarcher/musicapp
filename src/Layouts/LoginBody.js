@@ -13,16 +13,39 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { palette } from "@material-ui/system";
+import { blue } from "@material-ui/core/colors";
 
 const useStyles = makeStyles({
-  body: {
+  mainBody: {
     height: "100vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"
   },
+
   avatar: {
-    backgroundColor: "red"
+    backgroundColor: "#BF7D65"
+  },
+
+  inputField: {
+    overrides: {
+      MuiOutlinedInput: {
+        root: {
+          "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+            borderColor: "red"
+          }
+        }
+      }
+    }
+  },
+
+  subButton: {
+    backgroundColor: "#BF7D65",
+    width: "230px",
+    "&:hover": {
+      background: "#80A690",
+      transition: ".4s"
+    }
   }
 });
 
@@ -30,7 +53,7 @@ const LoginBody = props => {
   const { logInHandler } = props;
   const classes = useStyles();
   return (
-    <div className="body">
+    <div className={classes.mainBody}>
       <form className="formBox" onSubmit={e => logInHandler(e)}>
         <div className="mainContainer">
           <Grid
@@ -53,6 +76,7 @@ const LoginBody = props => {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.inputField}
                 id="outlined-required"
                 label="User Name"
                 variant="outlined"
@@ -61,6 +85,7 @@ const LoginBody = props => {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                className={classes.inputField}
                 id="outlined-required"
                 label="Password"
                 variant="outlined"
@@ -72,7 +97,7 @@ const LoginBody = props => {
                 variant="contained"
                 type="submit"
                 color="primary"
-                className="subButton"
+                className={classes.subButton}
               >
                 Submit
               </Button>
