@@ -13,7 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { palette } from "@material-ui/system";
-
 import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
