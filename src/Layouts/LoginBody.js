@@ -39,9 +39,13 @@ const useStyles = makeStyles({
     backgroundColor: "#BF7D65"
   },
 
+  inputField: {
+    width: "300px"
+  },
+
   subButton: {
     backgroundColor: "#BF7D65",
-    width: "230px",
+    width: "300px",
     "&:hover": {
       background: "#80A690",
       transition: ".4s"
@@ -79,6 +83,7 @@ const LoginBody = props => {
                   variant="outlined"
                   label="User Name"
                   name="username"
+                  className={classes.inputField}
                 />
               </ThemeProvider>
             </Grid>
@@ -88,6 +93,7 @@ const LoginBody = props => {
                   variant="outlined"
                   label="Password"
                   name="password"
+                  className={classes.inputField}
                 />
               </ThemeProvider>
             </Grid>
