@@ -21,7 +21,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
-    "makepretty": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
+    "unicorn": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
   },
   "eslintConfig": {
     "extends": "airbnb"

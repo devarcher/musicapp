@@ -14,71 +14,76 @@ import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { palette } from "@material-ui/system";
 
-const useStyles = makeStyles(theme => ({
-  avatar: {
-    backgroundColor: theme.palette.secondary.main
+const useStyles = makeStyles({
+  body: {
+    height: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center"
   },
-  button: {
-    width: theme.spacing(3, 0, 2)
+  avatar: {
+    backgroundColor: "red"
   }
-}));
+});
 
 const LoginBody = props => {
   const { logInHandler } = props;
   const classes = useStyles();
   return (
-    <form className="formBox">
-      <div className="mainContainer">
-        <Grid
-          container
-          spacing={2}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{ minHeight: "60vh" }}
-        >
-          <Grid item xs={12}>
-            <Avatar className={classes.avatar}>
-              <LockOutlinedIcon />
-            </Avatar>
+    <div className="body">
+      <form className="formBox">
+        <div className="mainContainer">
+          <Grid
+            container
+            spacing={2}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: "60vh" }}
+          >
+            <Grid item xs={12}>
+              <Avatar className={classes.avatar}>
+                <LockOutlinedIcon />
+              </Avatar>
+            </Grid>
+            <Grid item xs={12}>
+              <Typography component="h1" variant="h4.25">
+                Log In
+              </Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                novalidate
+                id="outlined-required"
+                label="User Name"
+                variant="outlined"
+                name="username"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                novalidate
+                id="outlined-required"
+                label="Password"
+                variant="outlined"
+                name="password"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <Button
+                variant="contained"
+                type="submit"
+                color="primary"
+                className="subButton"
+                onSumbit={e => logInHandler}
+              >
+                Submit
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={12}>
-            <Typography component="h1" variant="h4.25">
-              Log In
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              novalidate
-              id="outlined-required"
-              label="User Name"
-              variant="outlined"
-              name="username"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              novalidate
-              id="outlined-required"
-              label="Password"
-              variant="outlined"
-              name="password"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Button
-              variant="contained"
-              type="submit"
-              color="primary"
-              className="subButton"
-              onSumbit={e => logInHandler}
-            >
-              Submit
-            </Button>
-          </Grid>
-        </Grid>
-      </div>
-    </form>
+        </div>
+      </form>
+    </div>
   );
 };
 
