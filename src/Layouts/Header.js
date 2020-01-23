@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-  const { loggedIn } = props;
+  const { loggedIn, logOutHandler } = props;
   // console.log("Header Props", loggedIn);
 
   return (
@@ -25,7 +25,13 @@ export default function ButtonAppBar(props) {
           <Typography variant="h5" className={classes.title}>
             Music Things
           </Typography>
-          <Button color="inherit">{loggedIn ? "LogOut" : ""}</Button>
+          <Button 
+          color="inherit"
+          onClick={e => {
+            logOutHandler(e)
+          }}>
+            {loggedIn ? "LogOut" : ""}
+          </Button>
         </Toolbar>
       </AppBar>
     </div>
