@@ -10,10 +10,10 @@ class App extends React.Component {
     loggedIn: true
   };
 
-  logOutHandler = (e) => {
+  logOutHandler = e => {
     e.preventDefault();
-    this.setState({ loggedIn: false })
-  }
+    this.setState({ loggedIn: false });
+  };
 
   render() {
     const { loggedIn } = this.state;

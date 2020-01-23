@@ -65,11 +65,12 @@ const LoginBody = () => {
             />
           </Grid>
           <Grid item xs={12}>
-            <Button 
-              variant="contained" 
+            <Button
+              variant="contained"
               type="submit"
-              color="primary" 
-              className="subButton">
+              color="primary"
+              className="subButton"
+            >
               Submit
             </Button>
           </Grid>

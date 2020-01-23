@@ -25,13 +25,18 @@ export default function ButtonAppBar(props) {
           <Typography variant="h5" className={classes.title}>
             Music Things
           </Typography>
-          <Button 
-          color="inherit"
-          onClick={e => {
-            logOutHandler(e)
-          }}>
-            {loggedIn ? "LogOut" : ""}
-          </Button>
+          {loggedIn && (
+            <Button
+              variant="outlined"
+              color="inherit"
+              onClick={e => {
+                logOutHandler(e);
+              }}
+            >
+              {" "}
+              LOG OUT
+            </Button>
+          )}
         </Toolbar>
       </AppBar>
     </div>
