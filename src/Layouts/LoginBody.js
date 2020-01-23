@@ -13,7 +13,19 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { palette } from "@material-ui/system";
-import { blue } from "@material-ui/core/colors";
+
+import { createMuiTheme } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#80cbc4"
+    },
+    secondary: {
+      main: "#BF7D65"
+    }
+  }
+});
 
 const useStyles = makeStyles({
   mainBody: {
@@ -25,18 +37,6 @@ const useStyles = makeStyles({
 
   avatar: {
     backgroundColor: "#BF7D65"
-  },
-
-  inputField: {
-    overrides: {
-      MuiOutlinedInput: {
-        root: {
-          "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
-            borderColor: "red"
-          }
-        }
-      }
-    }
   },
 
   subButton: {
@@ -55,14 +55,13 @@ const LoginBody = props => {
   return (
     <div className={classes.mainBody}>
       <form className="formBox" onSubmit={e => logInHandler(e)}>
-        <div className="mainContainer">
+        <div>
           <Grid
             container
             spacing={2}
             direction="column"
             alignItems="center"
             justify="center"
-            style={{ minHeight: "60vh" }}
           >
             <Grid item xs={12}>
               <Avatar className={classes.avatar}>
@@ -75,22 +74,22 @@ const LoginBody = props => {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                className={classes.inputField}
-                id="outlined-required"
-                label="User Name"
-                variant="outlined"
-                name="username"
-              />
+              <ThemeProvider theme={theme}>
+                <TextField
+                  variant="outlined"
+                  label="User Name"
+                  name="username"
+                />
+              </ThemeProvider>
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                className={classes.inputField}
-                id="outlined-required"
-                label="Password"
-                variant="outlined"
-                name="password"
-              />
+              <ThemeProvider theme={theme}>
+                <TextField
+                  variant="outlined"
+                  label="Password"
+                  name="password"
+                />
+              </ThemeProvider>
             </Grid>
             <Grid item xs={12}>
               <Button
