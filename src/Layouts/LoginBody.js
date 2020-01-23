@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-const LoginBody = () => {
+const LoginBody = props => {
+  const { logInHandler } = props;
   const classes = useStyles();
   return (
     <form className="formBox">
@@ -48,7 +49,7 @@ const LoginBody = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              required
+              novalidate
               id="outlined-required"
               label="User Name"
               variant="outlined"
@@ -57,7 +58,7 @@ const LoginBody = () => {
           </Grid>
           <Grid item xs={12}>
             <TextField
-              required
+              novalidate
               id="outlined-required"
               label="Password"
               variant="outlined"
@@ -70,6 +71,7 @@ const LoginBody = () => {
               type="submit"
               color="primary"
               className="subButton"
+              onSumbit={e => logInHandler}
             >
               Submit
             </Button>

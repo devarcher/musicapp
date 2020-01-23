@@ -15,12 +15,21 @@ class App extends React.Component {
     this.setState({ loggedIn: false });
   };
 
+  logInHandler = e => {
+    e.preventDefault();
+    this.setState({ loggedIn: true });
+  };
+
   render() {
     const { loggedIn } = this.state;
     return (
       <div>
         <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
-        <div>{loggedIn ? <DashBoard /> : <LoginBody />}</div>
+        {loggedIn ? (
+          <DashBoard />
+        ) : (
+          <LoginBody logInHandler={this.logInHandler} />
+        )}
       </div>
     );
   }
