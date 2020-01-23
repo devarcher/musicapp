@@ -31,7 +31,7 @@ const LoginBody = props => {
   const classes = useStyles();
   return (
     <div className="body">
-      <form className="formBox">
+      <form className="formBox" onSubmit={e => logInHandler(e)}>
         <div className="mainContainer">
           <Grid
             container
@@ -47,13 +47,12 @@ const LoginBody = props => {
               </Avatar>
             </Grid>
             <Grid item xs={12}>
-              <Typography component="h1" variant="h4.25">
+              <Typography component="h1" variant="h4">
                 Log In
               </Typography>
             </Grid>
             <Grid item xs={12}>
               <TextField
-                novalidate
                 id="outlined-required"
                 label="User Name"
                 variant="outlined"
@@ -62,7 +61,6 @@ const LoginBody = props => {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                novalidate
                 id="outlined-required"
                 label="Password"
                 variant="outlined"
@@ -75,7 +73,6 @@ const LoginBody = props => {
                 type="submit"
                 color="primary"
                 className="subButton"
-                onSumbit={e => logInHandler}
               >
                 Submit
               </Button>

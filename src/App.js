@@ -7,7 +7,7 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    loggedIn: true
+    loggedIn: false
   };
 
   logOutHandler = e => {
