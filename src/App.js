@@ -1,13 +1,14 @@
 import React from "react";
-import Header from "./Layouts/Header";
-import LoginBody from "./Layouts/LoginBody";
-import DashBoard from "./Layouts/DashBoard";
+import Header from "./Components/Header";
+import LoginBody from "./Components/LoginBody";
+import DashBoard from "./Components/DashBoard";
 
 import "./App.css";
 
 class App extends React.Component {
   state = {
-    loggedIn: true
+    loggedIn: true,
+    online: true
   };
 
   logOutHandler = e => {
