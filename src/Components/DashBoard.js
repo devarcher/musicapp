@@ -1,4 +1,5 @@
 import React from "react";
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -23,20 +24,22 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   mainBody: {
+    border: "1px solid blue",
     height: "90vh",
     display: "flex",
-    justifyContent: "center",
-    alignItems: "center"
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
   cardContainer: {
     display: "flex",
-    justifyContent: "space-around",
-    alignItems: 'center',
+    justifyContent: 'center',
+    border: "1px solid red"
   },
 
   card: {
-    maxWidth: "300px",
+    maxWidth: "350px",
+    minWidth: "200px"
   },
 
   title: {
@@ -48,9 +51,11 @@ const DashBoard = props => {
   const classes = useStyles();
   const { online, onlineSwitch } = props;
   return (
+    <>
+      <CssBaseline />
     <div className={classes.mainBody}>
-      <Grid container spacing={4} className={classes.cardContainer}>
-        <Grid item xs={9} sm={9} md={3}> 
+      <Grid container className={classes.cardContainer}>
+        <Grid item xs={9} sm={9} md={4}> 
           <Card className={classes.card}>
             <CardContent>
               <Typography component="h2" variant="h6" className={classes.title}>
@@ -76,7 +81,7 @@ const DashBoard = props => {
           </Card>
         </Grid>
 
-        <Grid item xs={9} sm={9} md={3}>
+        <Grid item xs={9} sm={9} md={4}>
           <Card className={classes.card}>
             <CardContent>
               <Typography component="h2" variant="h6" className={classes.title}>
@@ -99,7 +104,7 @@ const DashBoard = props => {
           </Card>
         </Grid>
 
-        <Grid item xs={9} sm={9} md={3}>
+        <Grid item xs={9} sm={9} md={4}>
           <Card className={classes.card}>
             <CardContent>
               <Typography component="h2" variant="h6" className={classes.title}>
@@ -123,6 +128,7 @@ const DashBoard = props => {
         </Grid>
       </Grid>
     </div>
+    </>
   );
 };
 
