@@ -3,7 +3,6 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
@@ -45,12 +44,11 @@ const useStyles = makeStyles({
     marginLeft: "20px",
     maxWidth: "85%",
   },
-
 });
 
 const DashBoard = props => {
   const classes = useStyles();
-  const { online, onlineSwitch } = props;
+  const { online, onlineSwitch, sliderVolume} = props;
   return (
     <>
       <CssBaseline>
@@ -129,13 +127,12 @@ const DashBoard = props => {
                   <ThemeProvider theme={theme}>
                     <Slider
                       className={classes.slider}
-                      defaultValue={70}
-                      aria-labelledby="discrete-slider"
                       valueLabelDisplay="auto"
                       step={10}
                       marks
                       min={0}
                       max={100}
+                      onChange={e => sliderVolume(e)}
                     />
                   </ThemeProvider>
                 </CardActions>

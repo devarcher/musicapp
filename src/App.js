@@ -2,14 +2,14 @@ import React from "react";
 import Header from "./Components/Header";
 import LoginBody from "./Components/LoginBody";
 import DashBoard from "./Components/DashBoard";
-import Toolbar from "@material-ui/core/Toolbar";
 
 import "./App.css";
 
 class App extends React.Component {
   state = {
     loggedIn: true,
-    online: false
+    online: false,
+    volume: undefined
   };
 
   // AppBar Log Out Handler
@@ -29,15 +29,26 @@ class App extends React.Component {
     this.setState({ online: !this.state.online });
   };
 
+  // Dashboard Volume Slider Volume
+  sliderVolume = (e) => {
+    if(parseInt(e.target.outerText) > 80) {
+      console.log('too loud')
+    }
+    this.setState({ volume: parseInt(e.target.outerText) })
+  };
+
   render() {
-    const { loggedIn, online } = this.state;
+    const { loggedIn, online, volume } = this.state;
     return (
       <div>
         <div>
           <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
         </div>
         {loggedIn ? (
-          <DashBoard online={online} onlineSwitch={this.onlineSwitch} />
+          <DashBoard 
+            online={online} 
+            onlineSwitch={this.onlineSwitch}
+            sliderVolume={this.sliderVolume} />
         ) : (
           <LoginBody logInHandler={this.logInHandler} />
         )}
