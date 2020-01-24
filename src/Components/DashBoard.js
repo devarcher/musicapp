@@ -4,7 +4,6 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
-import { shadows } from '@material-ui/system';
 import "typeface-roboto";
 
 // Cards
@@ -21,10 +20,10 @@ import Slider from "@material-ui/core/Slider";
 // Select
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
+// Make Custom Color Palette
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -33,18 +32,26 @@ const theme = createMuiTheme({
     secondary: {
       main: "#5A9986"
     }
-  }
+  },
 });
 
+// CSS for classes
 const useStyles = makeStyles({
   mainBody: {
-    overflow: "hidden"
+    overflow: "hidden",
+  },
+  cardContainer: {
+    height: '',
+    ['@media (min-width:900px)']:{
+      height: "70vh",
+    },
+
+    padding: '15px',
   },
   cardWrapper: {
-    height: "45vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   card: {
     maxWidth: "350px",
@@ -82,7 +89,7 @@ const DashBoard = props => {
           >
             <Grid
               item
-              xs={9}
+              xs={10}
               sm={7}
               md={3}
               l={2}
@@ -120,7 +127,7 @@ const DashBoard = props => {
 
             <Grid
               item
-              xs={9}
+              xs={10}
               sm={7}
               md={3}
               l={2}
@@ -163,7 +170,7 @@ const DashBoard = props => {
 
             <Grid
               item
-              xs={9}
+              xs={10}
               sm={7}
               md={3}
               l={2}
