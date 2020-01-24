@@ -1,5 +1,5 @@
 import React from "react";
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from "@material-ui/core/CssBaseline";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
@@ -10,6 +10,7 @@ import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
 import "typeface-roboto";
+import { flexbox } from "@material-ui/system";
 
 const theme = createMuiTheme({
   palette: {
@@ -24,22 +25,16 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   mainBody: {
-    border: "1px solid blue",
-    height: "90vh",
+    overflow: "hidden",
+  }, 
+  cardWrapper: {
+    height: "45vh",
     display: "flex",
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: "center",
+    alignItems: "center"
   },
-
-  cardContainer: {
-    display: "flex",
-    justifyContent: 'center',
-    border: "1px solid red"
-  },
-
   card: {
-    maxWidth: "350px",
-    minWidth: "200px"
+    maxWidth: "350px"
   },
 
   title: {
@@ -52,82 +47,89 @@ const DashBoard = props => {
   const { online, onlineSwitch } = props;
   return (
     <>
-      <CssBaseline />
-    <div className={classes.mainBody}>
-      <Grid container className={classes.cardContainer}>
-        <Grid item xs={9} sm={9} md={4}> 
-          <Card className={classes.card}>
-            <CardContent>
-              <Typography component="h2" variant="h6" className={classes.title}>
-                Online Mode
-              </Typography>
-            </CardContent>
+      <CssBaseline>
+      <div className={classes.mainBody}>
+        <Grid container spacing={2} justify="center" className={classes.cardContainer}>
+          <Grid item xs={9} sm={7} md={3} l={2} xl={2} className={classes.cardWrapper}> 
+            <Card className={classes.card}>
+              <CardContent>
+                <Typography
+                  component="h2"
+                  variant="h6"
+                  className={classes.title}
+                >
+                  Online Mode
+                </Typography>
+              </CardContent>
 
-            <CardContent>
-              <Typography component="h3" variant="body1">
-                Is this application connected to the internet?
-              </Typography>
-            </CardContent>
+              <CardContent>
+                <Typography component="h3" variant="body1">
+                  Is this application connected to the internet?
+                </Typography>
+              </CardContent>
 
-            <CardActions>
-              <ThemeProvider theme={theme}>
-                <Switch
-                  checked={online}
-                  value="online"
-                  onClick={e => onlineSwitch(e)}
-                ></Switch>
-              </ThemeProvider>
-            </CardActions>
-          </Card>
+              <CardActions>
+                <ThemeProvider theme={theme}>
+                  <Switch
+                    checked={online}
+                    value="online"
+                    onClick={e => onlineSwitch(e)}
+                  ></Switch>
+                </ThemeProvider>
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid item xs={9} sm={7} md={3} l={2} xl={2} className={classes.cardWrapper}>
+            <Card className={classes.card}>
+              <CardContent>
+                <Typography
+                  component="h2"
+                  variant="h6"
+                  className={classes.title}
+                >
+                  Master Volume
+                </Typography>
+              </CardContent>
+
+              <CardContent>
+                <Typography component="h3" variant="body1">
+                  Overrides all other sound settings in this application
+                </Typography>
+              </CardContent>
+
+              <CardActions>
+                <ThemeProvider theme={theme}></ThemeProvider>
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid item xs={9} sm={7} md={3} l={2} xl={2} className={classes.cardWrapper}>
+            <Card className={classes.card}>
+              <CardContent>
+                <Typography
+                  component="h2"
+                  variant="h6"
+                  className={classes.title}
+                >
+                  Sound Quality
+                </Typography>
+              </CardContent>
+
+              <CardContent>
+                <Typography component="h3" variant="body1">
+                  Manually control the music quality in event of poor connection
+                </Typography>
+              </CardContent>
+
+              <CardActions>
+                <ThemeProvider theme={theme}></ThemeProvider>
+              </CardActions>
+            </Card>
+          </Grid>
         </Grid>
-
-        <Grid item xs={9} sm={9} md={4}>
-          <Card className={classes.card}>
-            <CardContent>
-              <Typography component="h2" variant="h6" className={classes.title}>
-                Master Volume
-              </Typography>
-            </CardContent>
-
-            <CardContent>
-              <Typography component="h3" variant="body1">
-                Overrides all other sound settings in this application
-              </Typography>
-            </CardContent>
-
-            <CardActions>
-              <ThemeProvider theme={theme}>
-                
-
-              </ThemeProvider>
-            </CardActions>
-          </Card>
-        </Grid>
-
-        <Grid item xs={9} sm={9} md={4}>
-          <Card className={classes.card}>
-            <CardContent>
-              <Typography component="h2" variant="h6" className={classes.title}>
-                Sound Quality
-              </Typography>
-            </CardContent>
-
-            <CardContent>
-              <Typography component="h3" variant="body1">
-                Manually control the music quality in event of poor connection
-              </Typography>
-            </CardContent>
-
-            <CardActions>
-              <ThemeProvider theme={theme}>
-                
-
-              </ThemeProvider>
-            </CardActions>
-          </Card>
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+      </CssBaseline>
     </>
   );
 };

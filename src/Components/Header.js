@@ -19,7 +19,7 @@ export default function ButtonAppBar(props) {
   const { loggedIn, logOutHandler } = props;
 
   return (
-    <AppBar className={classes.aBar}>
+    <AppBar position="static" className={classes.aBar}>
       <Toolbar>
         <Typography variant="h5" className={classes.title}>
           Music App

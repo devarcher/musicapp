@@ -33,8 +33,10 @@ class App extends React.Component {
     const { loggedIn, online } = this.state;
     return (
       <div>
+        <div>
+
         <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
-        <Toolbar />
+        </div>
         {loggedIn ? (
           <DashBoard online={online} onlineSwitch={this.onlineSwitch} />
         ) : (
