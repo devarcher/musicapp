@@ -30,25 +30,27 @@ class App extends React.Component {
   };
 
   // Dashboard Volume Slider Volume
-  sliderVolume = (e) => {
-    if(parseInt(e.target.outerText) > 80) {
-      console.log('too loud')
+  sliderVolume = e => {
+    if (parseInt(e.target.outerText) > 80) {
+      console.log("too loud");
     }
-    this.setState({ volume: parseInt(e.target.outerText) })
+    this.setState({ volume: parseInt(e.target.outerText) });
   };
 
   render() {
     const { loggedIn, online, volume } = this.state;
+    console.log(volume, online);
     return (
       <div>
         <div>
           <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
         </div>
         {loggedIn ? (
-          <DashBoard 
-            online={online} 
+          <DashBoard
+            online={online}
             onlineSwitch={this.onlineSwitch}
-            sliderVolume={this.sliderVolume} />
+            sliderVolume={this.sliderVolume}
+          />
         ) : (
           <LoginBody logInHandler={this.logInHandler} />
         )}

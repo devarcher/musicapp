@@ -1,16 +1,28 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
-import Switch from "@material-ui/core/Switch";
 import "typeface-roboto";
 
+// Cards
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+
+// Switch
+import Switch from "@material-ui/core/Switch";
+
+// Slider
 import Slider from "@material-ui/core/Slider";
+
+// Select
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
 const theme = createMuiTheme({
   palette: {
@@ -42,13 +54,13 @@ const useStyles = makeStyles({
   },
   slider: {
     marginLeft: "20px",
-    maxWidth: "85%",
-  },
+    maxWidth: "85%"
+  }
 });
 
 const DashBoard = props => {
   const classes = useStyles();
-  const { online, onlineSwitch, sliderVolume} = props;
+  const { online, onlineSwitch, sliderVolume } = props;
   return (
     <>
       <CssBaseline>
@@ -167,7 +179,27 @@ const DashBoard = props => {
                 </CardContent>
 
                 <CardActions>
-                  <ThemeProvider theme={theme}></ThemeProvider>
+                  <ThemeProvider theme={theme}>
+                    <FormControl
+                      variant="outlined"
+                      className={classes.formControl}
+                    >
+                      <InputLabel
+                        ref={inputLabel}
+                        id="demo-simple-select-outlined-label"
+                      >
+                        Age
+                      </InputLabel>
+                      <Select
+                        value={quality}
+                        onChange={handleChange}
+                      >
+                        <MenuItem value={low}>Low</MenuItem>
+                        <MenuItem value={normal}>Normal</MenuItem>
+                        <MenuItem value={high}>High</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </ThemeProvider>
                 </CardActions>
               </Card>
             </Grid>
