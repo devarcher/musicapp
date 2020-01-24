@@ -23,16 +23,22 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   mainBody: {
-    height: "97vh",
-    width: "100vw",
+    height: '100vh',
     display: "flex",
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
+
+  cardContainer: {
+    width: '90vw',
+    display: 'flex',
+    justifyContent: 'space-around',
+  },
+
   card: {
-    width: "250px",
-    height: "200px"
+    maxWidth: '300px'
   },
+
   title: {
     borderBottom: "1px solid #80cbc4"
   }
@@ -43,8 +49,8 @@ const DashBoard = (props) => {
   const { online, onlineSwitch } = props;
   return (
     <div className={classes.mainBody}>
-      <Grid container spacing={24} justify="center">
-        <Grid item xs={12} sm={4} lg={3} xl={2}>
+      <Grid container spacing={2} className={classes.cardContainer}>
+        <Grid item xs={12} sm={6} lg={4} xl={3}>
           <Card className={classes.card}>
             <CardContent>
               <Typography component="h2" variant="h6" className={classes.title}>
@@ -71,11 +77,11 @@ const DashBoard = (props) => {
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={4} lg={3} xl={2}>
+        <Grid item xs={12} sm={6} lg={4} xl={3}>
           <Card className={classes.card}>hi</Card>
         </Grid>
 
-        <Grid item xs={12} sm={4} lg={3} xl={2}>
+        <Grid item xs={12} sm={6} lg={4} xl={3}>
           <Card className={classes.card}>hi</Card>
         </Grid>
       </Grid>
