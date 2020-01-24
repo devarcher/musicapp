@@ -34,8 +34,7 @@ class App extends React.Component {
     return (
       <div>
         <div>
-
-        <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
+          <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
         </div>
         {loggedIn ? (
           <DashBoard online={online} onlineSwitch={this.onlineSwitch} />
