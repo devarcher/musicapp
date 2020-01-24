@@ -2,6 +2,7 @@ import React from "react";
 import Header from "./Components/Header";
 import LoginBody from "./Components/LoginBody";
 import DashBoard from "./Components/DashBoard";
+import Toolbar from "@material-ui/core/Toolbar";
 
 import "./App.css";
 
@@ -24,15 +25,16 @@ class App extends React.Component {
   };
 
   // Dashboard Online Switch Handler
-  onlineSwitch = (e) => {
-    this.setState({ online: !this.state.online })
-  }
+  onlineSwitch = e => {
+    this.setState({ online: !this.state.online });
+  };
 
   render() {
     const { loggedIn, online } = this.state;
     return (
       <div>
         <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
+        <Toolbar />
         {loggedIn ? (
           <DashBoard online={online} onlineSwitch={this.onlineSwitch} />
         ) : (

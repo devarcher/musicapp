@@ -23,20 +23,20 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   mainBody: {
-    height: '100vh',
+    height: "90vh",
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
 
   cardContainer: {
-    width: '90vw',
-    display: 'flex',
-    justifyContent: 'space-around',
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: 'center',
   },
 
   card: {
-    maxWidth: '300px'
+    maxWidth: "300px",
   },
 
   title: {
@@ -44,13 +44,13 @@ const useStyles = makeStyles({
   }
 });
 
-const DashBoard = (props) => {
+const DashBoard = props => {
   const classes = useStyles();
   const { online, onlineSwitch } = props;
   return (
     <div className={classes.mainBody}>
-      <Grid container spacing={2} className={classes.cardContainer}>
-        <Grid item xs={12} sm={6} lg={4} xl={3}>
+      <Grid container spacing={4} className={classes.cardContainer}>
+        <Grid item xs={9} sm={9} md={3}> 
           <Card className={classes.card}>
             <CardContent>
               <Typography component="h2" variant="h6" className={classes.title}>
@@ -66,23 +66,60 @@ const DashBoard = (props) => {
 
             <CardActions>
               <ThemeProvider theme={theme}>
-                <Switch 
-                checked={online}
-                value="online"
-                onClick={e => onlineSwitch(e)}
-                >
-                </Switch>
+                <Switch
+                  checked={online}
+                  value="online"
+                  onClick={e => onlineSwitch(e)}
+                ></Switch>
               </ThemeProvider>
             </CardActions>
           </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} lg={4} xl={3}>
-          <Card className={classes.card}>hi</Card>
+        <Grid item xs={9} sm={9} md={3}>
+          <Card className={classes.card}>
+            <CardContent>
+              <Typography component="h2" variant="h6" className={classes.title}>
+                Master Volume
+              </Typography>
+            </CardContent>
+
+            <CardContent>
+              <Typography component="h3" variant="body1">
+                Overrides all other sound settings in this application
+              </Typography>
+            </CardContent>
+
+            <CardActions>
+              <ThemeProvider theme={theme}>
+                
+
+              </ThemeProvider>
+            </CardActions>
+          </Card>
         </Grid>
 
-        <Grid item xs={12} sm={6} lg={4} xl={3}>
-          <Card className={classes.card}>hi</Card>
+        <Grid item xs={9} sm={9} md={3}>
+          <Card className={classes.card}>
+            <CardContent>
+              <Typography component="h2" variant="h6" className={classes.title}>
+                Sound Quality
+              </Typography>
+            </CardContent>
+
+            <CardContent>
+              <Typography component="h3" variant="body1">
+                Manually control the music quality in event of poor connection
+              </Typography>
+            </CardContent>
+
+            <CardActions>
+              <ThemeProvider theme={theme}>
+                
+
+              </ThemeProvider>
+            </CardActions>
+          </Card>
         </Grid>
       </Grid>
     </div>
