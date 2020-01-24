@@ -10,15 +10,16 @@ import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import Switch from "@material-ui/core/Switch";
 import "typeface-roboto";
-import { flexbox } from "@material-ui/system";
+
+import Slider from "@material-ui/core/Slider";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#80cbc4"
+      main: "#5A9986"
     },
     secondary: {
-      main: "#7FD9BE"
+      main: "#5A9986"
     }
   }
 });
@@ -34,12 +35,17 @@ const useStyles = makeStyles({
     alignItems: "center"
   },
   card: {
-    maxWidth: "350px"
+    maxWidth: "350px",
+    minHeight: "225px"
   },
-
   title: {
     borderBottom: "1px solid #80cbc4"
-  }
+  },
+  slider: {
+    marginLeft: "20px",
+    maxWidth: "85%",
+  },
+
 });
 
 const DashBoard = props => {
@@ -120,7 +126,18 @@ const DashBoard = props => {
                 </CardContent>
 
                 <CardActions>
-                  <ThemeProvider theme={theme}></ThemeProvider>
+                  <ThemeProvider theme={theme}>
+                    <Slider
+                      className={classes.slider}
+                      defaultValue={70}
+                      aria-labelledby="discrete-slider"
+                      valueLabelDisplay="auto"
+                      step={10}
+                      marks
+                      min={0}
+                      max={100}
+                    />
+                  </ThemeProvider>
                 </CardActions>
               </Card>
             </Grid>
