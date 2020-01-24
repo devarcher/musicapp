@@ -34,12 +34,13 @@ const useStyles = makeStyles({
     height: "200px"
   },
   title: {
-    borderBottom: "1px solid #80cbc4",
+    borderBottom: "1px solid #80cbc4"
   }
 });
 
-const DashBoard = () => {
+const DashBoard = (props) => {
   const classes = useStyles();
+  const { online, onlineSwitch } = props;
   return (
     <div className={classes.mainBody}>
       <Grid container spacing={24} justify="center">
@@ -50,22 +51,30 @@ const DashBoard = () => {
                 Online Mode
               </Typography>
             </CardContent>
+
             <CardContent>
               <Typography component="h3" variant="body1">
                 Is this application connected to the internet?
               </Typography>
             </CardContent>
+
             <CardActions>
               <ThemeProvider theme={theme}>
-                <Switch
-                ></Switch>
+                <Switch 
+                checked={online}
+                value="online"
+                onClick={e => onlineSwitch(e)}
+                >
+                </Switch>
               </ThemeProvider>
             </CardActions>
           </Card>
         </Grid>
+
         <Grid item xs={12} sm={4} lg={3} xl={2}>
           <Card className={classes.card}>hi</Card>
         </Grid>
+
         <Grid item xs={12} sm={4} lg={3} xl={2}>
           <Card className={classes.card}>hi</Card>
         </Grid>
