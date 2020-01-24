@@ -28,7 +28,7 @@ const theme = createMuiTheme({
 
 const useStyles = makeStyles({
   mainBody: {
-    height: "97vh",
+    height: "75vh",
     display: "flex",
     justifyContent: "center",
     alignItems: "center"

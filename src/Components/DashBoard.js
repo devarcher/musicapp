@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
+import { shadows } from '@material-ui/system';
 import "typeface-roboto";
 
 // Cards
@@ -47,7 +48,10 @@ const useStyles = makeStyles({
   },
   card: {
     maxWidth: "350px",
-    minHeight: "225px"
+    minHeight: "225px",
+    '&:hover': {
+      boxShadow: "0 7px 7px rgba(0,0,0,0.22)",
+    },
   },
   title: {
     borderBottom: "1px solid #80cbc4"
@@ -55,7 +59,12 @@ const useStyles = makeStyles({
   slider: {
     marginLeft: "20px",
     maxWidth: "85%"
-  }
+  },
+  formControl: {
+    marginLeft: "20px",
+    width: "85%",
+  },
+
 });
 
 const DashBoard = props => {
@@ -182,7 +191,6 @@ const DashBoard = props => {
                 <CardActions>
                   <ThemeProvider theme={theme}>
                     <FormControl
-                      variant="outlined"
                       className={classes.formControl}
                     >
                       <InputLabel
