@@ -60,7 +60,7 @@ const useStyles = makeStyles({
 
 const DashBoard = props => {
   const classes = useStyles();
-  const { online, onlineSwitch, sliderVolume } = props;
+  const { online, volume, quality, onlineSwitch, sliderVolume, selectQuality } = props;
   return (
     <>
       <CssBaseline>
@@ -140,6 +140,7 @@ const DashBoard = props => {
                     <Slider
                       className={classes.slider}
                       valueLabelDisplay="auto"
+                      defaultValue={volume}
                       step={10}
                       marks
                       min={0}
@@ -185,18 +186,17 @@ const DashBoard = props => {
                       className={classes.formControl}
                     >
                       <InputLabel
-                        ref={inputLabel}
                         id="demo-simple-select-outlined-label"
                       >
-                        Age
+                        Quality
                       </InputLabel>
                       <Select
                         value={quality}
-                        onChange={handleChange}
+                        onChange={e => selectQuality(e)}
                       >
-                        <MenuItem value={low}>Low</MenuItem>
-                        <MenuItem value={normal}>Normal</MenuItem>
-                        <MenuItem value={high}>High</MenuItem>
+                        <MenuItem value="low">Low</MenuItem>
+                        <MenuItem value="normal">Normal</MenuItem>
+                        <MenuItem value="high">High</MenuItem>
                       </Select>
                     </FormControl>
                   </ThemeProvider>

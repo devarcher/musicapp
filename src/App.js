@@ -9,7 +9,8 @@ class App extends React.Component {
   state = {
     loggedIn: true,
     online: false,
-    volume: undefined
+    volume: 70,
+    quality: "high"
   };
 
   // AppBar Log Out Handler
@@ -31,15 +32,16 @@ class App extends React.Component {
 
   // Dashboard Volume Slider Volume
   sliderVolume = e => {
-    if (parseInt(e.target.outerText) > 80) {
-      console.log("too loud");
-    }
     this.setState({ volume: parseInt(e.target.outerText) });
   };
 
+  // Dashboard Quality Selction
+  selectQuality = e => {
+    this.setState({ quality: e.target.value })
+  }
+
   render() {
-    const { loggedIn, online, volume } = this.state;
-    console.log(volume, online);
+    const { loggedIn, online, volume, quality } = this.state;
     return (
       <div>
         <div>
@@ -48,8 +50,11 @@ class App extends React.Component {
         {loggedIn ? (
           <DashBoard
             online={online}
+            volume={volume}
+            quality={quality}
             onlineSwitch={this.onlineSwitch}
             sliderVolume={this.sliderVolume}
+            selectQuality={this.selectQuality}
           />
         ) : (
           <LoginBody logInHandler={this.logInHandler} />
