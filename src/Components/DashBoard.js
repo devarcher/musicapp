@@ -1,4 +1,7 @@
 import React from "react";
+import Notifications from "./Notifications";
+
+// General
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
@@ -32,33 +35,32 @@ const theme = createMuiTheme({
     secondary: {
       main: "#5A9986"
     }
-  },
+  }
 });
 
 // CSS for classes
 const useStyles = makeStyles({
   mainBody: {
-    overflow: "hidden",
+    overflow: "hidden"
   },
   cardContainer: {
-    height: '',
-    ['@media (min-width:900px)']:{
-      height: "70vh",
+    height: "",
+    ["@media (min-width:900px)"]: {
+      height: "70vh"
     },
-
-    padding: '15px',
+    padding: "15px"
   },
   cardWrapper: {
     display: "flex",
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   card: {
     maxWidth: "350px",
     minHeight: "225px",
-    '&:hover': {
-      boxShadow: "0 7px 7px rgba(0,0,0,0.22)",
-    },
+    "&:hover": {
+      boxShadow: "0 7px 7px rgba(0,0,0,0.22)"
+    }
   },
   title: {
     borderBottom: "1px solid #80cbc4"
@@ -69,14 +71,20 @@ const useStyles = makeStyles({
   },
   formControl: {
     marginLeft: "20px",
-    width: "85%",
-  },
-
+    width: "85%"
+  }
 });
 
 const DashBoard = props => {
   const classes = useStyles();
-  const { online, volume, quality, onlineSwitch, sliderVolume, selectQuality } = props;
+  const {
+    online,
+    volume,
+    quality,
+    onlineSwitch,
+    sliderVolume,
+    selectQuality
+  } = props;
   return (
     <>
       <CssBaseline>
@@ -197,18 +205,11 @@ const DashBoard = props => {
 
                 <CardActions>
                   <ThemeProvider theme={theme}>
-                    <FormControl
-                      className={classes.formControl}
-                    >
-                      <InputLabel
-                        id="demo-simple-select-outlined-label"
-                      >
+                    <FormControl className={classes.formControl}>
+                      <InputLabel id="demo-simple-select-outlined-label">
                         Quality
                       </InputLabel>
-                      <Select
-                        value={quality}
-                        onChange={e => selectQuality(e)}
-                      >
+                      <Select value={quality} onChange={e => selectQuality(e)}>
                         <MenuItem value="low">Low</MenuItem>
                         <MenuItem value="normal">Normal</MenuItem>
                         <MenuItem value="high">High</MenuItem>
@@ -219,6 +220,7 @@ const DashBoard = props => {
               </Card>
             </Grid>
           </Grid>
+          <Notifications online={online} volume={volume} quality={quality} />
         </div>
       </CssBaseline>
     </>

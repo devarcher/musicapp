@@ -10,7 +10,7 @@ class App extends React.Component {
     loggedIn: true,
     online: false,
     volume: 70,
-    quality: "high"
+    quality: "high",
   };
 
   // AppBar Log Out Handler
@@ -37,8 +37,9 @@ class App extends React.Component {
 
   // Dashboard Quality Selction
   selectQuality = e => {
-    this.setState({ quality: e.target.value })
-  }
+    this.setState({ quality: e.target.value });
+  };
+
 
   render() {
     const { loggedIn, online, volume, quality } = this.state;
