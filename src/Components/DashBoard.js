@@ -46,7 +46,7 @@ const useStyles = makeStyles({
   cardContainer: {
     height: "",
     ["@media (min-width:900px)"]: {
-      height: "70vh"
+      height: "45vh"
     },
     padding: "15px"
   },
@@ -81,6 +81,7 @@ const DashBoard = props => {
     online,
     volume,
     quality,
+    notifications,
     onlineSwitch,
     sliderVolume,
     selectQuality
@@ -100,7 +101,7 @@ const DashBoard = props => {
               xs={10}
               sm={7}
               md={3}
-              l={2}
+              lg={2}
               xl={2}
               className={classes.cardWrapper}
             >
@@ -138,7 +139,7 @@ const DashBoard = props => {
               xs={10}
               sm={7}
               md={3}
-              l={2}
+              lg={2}
               xl={2}
               className={classes.cardWrapper}
             >
@@ -181,7 +182,7 @@ const DashBoard = props => {
               xs={10}
               sm={7}
               md={3}
-              l={2}
+              lg={2}
               xl={2}
               className={classes.cardWrapper}
             >
@@ -220,7 +221,12 @@ const DashBoard = props => {
               </Card>
             </Grid>
           </Grid>
-          <Notifications online={online} volume={volume} quality={quality} />
+          <Notifications
+            online={online}
+            volume={volume}
+            quality={quality}
+            notifications={notifications}
+          />
         </div>
       </CssBaseline>
     </>

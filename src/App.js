@@ -10,7 +10,15 @@ class App extends React.Component {
     loggedIn: true,
     online: false,
     volume: 70,
-    quality: "high"
+    quality: "high",
+    notifications: {
+      offline:
+        "Your application is offline. You won't be able to share or stream music to other devices.",
+      volume:
+        "Listening to music at a high volume could cause long-term hearing loss.",
+      quality:
+        "Music quality is degraded. Increase quality if your connection allows it."
+    }
   };
 
   // AppBar Log Out Handler
@@ -41,7 +49,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { loggedIn, online, volume, quality } = this.state;
+    const { loggedIn, online, volume, quality, notifications } = this.state;
     return (
       <div>
         <div>
@@ -52,6 +60,7 @@ class App extends React.Component {
             online={online}
             volume={volume}
             quality={quality}
+            notifications={notifications}
             onlineSwitch={this.onlineSwitch}
             sliderVolume={this.sliderVolume}
             selectQuality={this.selectQuality}
