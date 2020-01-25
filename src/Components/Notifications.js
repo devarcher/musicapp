@@ -8,13 +8,9 @@ import "typeface-roboto";
 
 const useStyles = makeStyles({
   notificationTitle: {
-    marginBottom: "25px",
     borderBottom: "1px solid #5A9986"
   },
-  notificationsWrapper: {
-    maxWidth: "60%",
-    marginBottom: "25px"
-  }
+
 });
 
 const Notifications = props => {
@@ -29,9 +25,10 @@ const Notifications = props => {
         direction="column"
         alignItems="center"
         justify="center"
+        spacing={2}
         className={classes.notifications}
       >
-        <Grid item spacing={2} xs={10} sm={7} md={9} lg={6} xl={6}>
+        <Grid item xs={10} sm={7} md={9} lg={6} xl={6}>
           <Typography
             component="h1"
             variant="h4"
@@ -43,10 +40,10 @@ const Notifications = props => {
         {online === false && (
           <Grid
             item
-            xs={10}
-            sm={7}
-            md={9}
-            lg={6}
+            xs={8}
+            sm={5}
+            md={6}
+            lg={4}
             xl={6}
             className={classes.notificationsWrapper}
           >
@@ -58,10 +55,10 @@ const Notifications = props => {
         {volume > 80 && (
           <Grid
             item
-            xs={10}
-            sm={7}
-            md={9}
-            lg={6}
+            xs={8}
+            sm={5}
+            md={6}
+            lg={4}
             xl={6}
             className={classes.notificationsWrapper}
           >
@@ -73,10 +70,10 @@ const Notifications = props => {
         {quality === 'low' && (
           <Grid
             item
-            xs={10}
-            sm={7}
-            md={9}
-            lg={6}
+            xs={8}
+            sm={5}
+            md={6}
+            lg={4}
             xl={6}
             className={classes.notificationsWrapper}
           >

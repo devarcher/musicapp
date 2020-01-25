@@ -8,7 +8,7 @@ import "./App.css";
 class App extends React.Component {
   state = {
     loggedIn: true,
-    online: false,
+    online: true,
     volume: 70,
     quality: "high",
     notifications: {

@@ -45,7 +45,7 @@ const useStyles = makeStyles({
   },
   cardContainer: {
     height: "",
-    ["@media (min-width:900px)"]: {
+    ["@media (min-width:960px)"]: {
       height: "45vh"
     },
     padding: "15px"
