@@ -2,40 +2,36 @@ import React from "react";
 
 class Notifications extends React.Component {
   state = {
-    notifications: []
-  };
-
-  // Notifications Handler
-  notificationHandler = props => {
-    const { notifications } = this.state;
-    const { online, volume, quality } = this.props;
-    const messages = {
+    notifications: {
       offline:
         "Your application is offline. You won't be able to share or stream music to other devices.",
       volume:
         "Listening to music at a high volume could cause long-term hearing loss.",
       quality:
         "Music quality is degraded. Increase quality if your connection allows it."
-    };
+    }
+  };
 
-    console.log(online, volume, quality);
-    //   if (online === false) {
-    //     this.setState(previousState => ({
-    //     notifications: [...previousState.notifications, messages.offline]
-    // }));
-    // }
+  // Notifications Handler
+  notificationHandler = props => {
+    const { notifications } = this.state;
+    const { online, volume, quality } = this.props;
 
-    // if (this.state.volume > 80) {
-    //   this.setState({ notifications: messages.volume });
-    // }
+    if (online === false) {
+      console.log(notifications.offline);
+    }
 
-    // if (quality === "low") {
-    //   this.setState({ notifications: messages.quality });
-    // }
+    if (volume > 80) {
+      console.log(notifications.volume);
+    }
+
+    if (quality === "low") {
+      console.log(notifications.quality);
+    }
   };
 
   render() {
-    //  this.notificationHandler()
+    this.notificationHandler();
     return <div>hi</div>;
   }
 }
