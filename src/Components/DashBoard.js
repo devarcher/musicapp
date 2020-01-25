@@ -63,7 +63,7 @@ const useStyles = makeStyles({
     }
   },
   title: {
-    borderBottom: "1px solid #80cbc4"
+    borderBottom: "1px solid #5A9986"
   },
   slider: {
     marginLeft: "20px",
