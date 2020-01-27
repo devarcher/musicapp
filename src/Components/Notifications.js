@@ -9,8 +9,7 @@ import "typeface-roboto";
 const useStyles = makeStyles({
   notificationTitle: {
     borderBottom: "1px solid #5A9986"
-  },
-
+  }
 });
 
 const Notifications = props => {
@@ -67,7 +66,7 @@ const Notifications = props => {
             </Typography>
           </Grid>
         )}
-        {quality === 'low' && (
+        {quality === "low" && (
           <Grid
             item
             xs={8}

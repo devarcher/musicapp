@@ -5,12 +5,19 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
+import IconButton from "@material-ui/core/IconButton";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import Badge from "@material-ui/core/Badge";
+
 const useStyles = makeStyles(theme => ({
   aBar: {
     backgroundColor: "#80A690"
   },
   title: {
     flexGrow: 1
+  },
+  notifications: {
+    marginRight: "5px"
   }
 }));
 
@@ -25,15 +32,22 @@ export default function ButtonAppBar(props) {
           Music App
         </Typography>
         {loggedIn && (
-          <Button
-            variant="outlined"
-            color="inherit"
-            onClick={e => {
-              logOutHandler(e);
-            }}
-          >
-            LOG OUT
-          </Button>
+          <>
+            <IconButton color="inherit">
+              <Badge badgeContent={0} color="secondary">
+                <NotificationsIcon className={classes.notifications}/>
+              </Badge>
+            </IconButton>
+            <Button
+              variant="outlined"
+              color="inherit"
+              onClick={e => {
+                logOutHandler(e);
+              }}
+            >
+              LOG OUT
+            </Button>
+          </>
         )}
       </Toolbar>
     </AppBar>
