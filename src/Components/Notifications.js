@@ -9,13 +9,16 @@ import "typeface-roboto";
 const useStyles = makeStyles({
   notificationTitle: {
     borderBottom: "1px solid #5A9986"
-  }
+  }, 
+  notifications: {
+    border: "1px solid red"
+  } 
 });
 
 const Notifications = props => {
   const { online, volume, quality, notifications } = props;
   const classes = useStyles();
-  return <div>{notifications}</div>;
+  return <div className={classes.notifications}>{notifications}</div>;
 };
 
 export default Notifications;
