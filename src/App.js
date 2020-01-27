@@ -37,12 +37,49 @@ class App extends React.Component {
 
   // Dashboard Online Switch Handler
   onlineSwitch = e => {
-    this.setState({ online: !this.state.online }, this.notificationHandler);
+    this.setState({ online: !this.state.online }, this.switchNotification);
+  };
+
+  switchNotification = () => {
+    const { online, notifications } = this.state;
+    const messages = {
+      offline:
+        "Your application is offline. You won't be able to share or stream music to other devices."
+    };
+    if (
+      online === false &&
+      !this.state.notifications.includes(messages.offline)
+    ) {
+      this.setState({ notifications: [...notifications, messages.offline] });
+    } else if (online === true) {
+      this.setState(prevState => ({
+        notifications: prevState.notifications.filter(
+          message => message !== messages.offline
+        )
+      }));
+    }
   };
 
   // Dashboard Volume Slider Volume
   sliderVolume = e => {
-    this.setState({ volume: parseInt(e.target.outerText) }, this.notificationHandler);
+    this.setState({ volume: parseInt(e.target.outerText) }, this.volumeNotification);
+  };
+
+  volumeNotification = () => {
+    const { volume, notifications } = this.state;
+    const messages = {
+      volume:
+        "Listening to music at a high volume could cause long-term hearing loss."
+    };
+    if (volume > 80) {
+      this.setState({ notifications: [...notifications, messages.volume] });
+    } else {
+      this.setState(prevState => ({
+        notifications: prevState.notifications.filter(
+          message => message !== messages.volume
+        )
+      }));
+    }
   };
 
   // Dashboard Quality Selction
@@ -50,26 +87,26 @@ class App extends React.Component {
     this.setState({ quality: e.target.value });
   };
 
-  notificationHandler = () => {
-    const { online, volume, quality, notifications } = this.state;
-    const messages = {
-       offline:
-        "Your application is offline. You won't be able to share or stream music to other devices.",
-      volume:
-        "Listening to music at a high volume could cause long-term hearing loss.",
-      quality:
-        "Music quality is degraded. Increase quality if your connection allows it."
-    }
+  // notificationHandler = () => {
+  //   const { online, volume, quality, notifications } = this.state;
+  //   const messages = {
+  //     offline:
+  //       "Your application is offline. You won't be able to share or stream music to other devices.",
+  //     volume:
+  //       "Listening to music at a high volume could cause long-term hearing loss.",
+  //     quality:
+  //       "Music quality is degraded. Increase quality if your connection allows it."
+  //   };
 
-    if (online === false) {
-      this.setState({ notifications: [...notifications, messages.offline] });
-    } else {
-      this.setState(prevState => ({ notifications: prevState.notifications.filter(message => message !== messages.offline) })); 
-    }
-    if (volume > 80) {
-      this.setState({ notifications: [...notifications, "y"] });
-    }
-  };
+  //   if (online === false  && !this.state.notifications.includes(messages.offline)) {
+  //     this.setState({ notifications: [...notifications, messages.offline] });
+  //   } else if (online === true) {
+  //     this.setState(prevState => ({
+  //       notifications: prevState.notifications.filter(
+  //         message => message !== messages.offline
+  //       )
+  //     }));
+  //   }
 
   render() {
     const { loggedIn, online, volume, quality, notifications } = this.state;
