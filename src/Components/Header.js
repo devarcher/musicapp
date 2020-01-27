@@ -35,7 +35,7 @@ export default function ButtonAppBar(props) {
           <>
             <IconButton color="inherit">
               <Badge badgeContent={0} color="secondary">
-                <NotificationsIcon className={classes.notifications}/>
+                <NotificationsIcon className={classes.notifications} />
               </Badge>
             </IconButton>
             <Button

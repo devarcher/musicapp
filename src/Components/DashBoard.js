@@ -170,7 +170,7 @@ const DashBoard = props => {
                       marks
                       min={0}
                       max={100}
-                      onChange={e => sliderVolume(e)}
+                      onChangeCommitted={e => sliderVolume(e)}
                     />
                   </ThemeProvider>
                 </CardActions>
