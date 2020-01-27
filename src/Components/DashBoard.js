@@ -1,5 +1,4 @@
 import React from "react";
-import Notifications from "./Notifications";
 
 // General
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -46,7 +45,7 @@ const useStyles = makeStyles({
   cardContainer: {
     height: "",
     ["@media (min-width:960px)"]: {
-      height: "45vh"
+      height: "70vh"
     },
     padding: "15px"
   },
@@ -81,7 +80,6 @@ const DashBoard = props => {
     online,
     volume,
     quality,
-    notifications,
     onlineSwitch,
     sliderVolume,
     selectQuality
@@ -221,12 +219,6 @@ const DashBoard = props => {
               </Card>
             </Grid>
           </Grid>
-          <Notifications
-            online={online}
-            volume={volume}
-            quality={quality}
-            notifications={notifications}
-          />
         </div>
       </CssBaseline>
     </>
