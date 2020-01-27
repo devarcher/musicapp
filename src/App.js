@@ -12,15 +12,6 @@ class App extends React.Component {
     volume: 70,
     quality: "high",
     notifications: []
-
-    // notifications: {
-    //   offline:
-    //     "Your application is offline. You won't be able to share or stream music to other devices.",
-    //   volume:
-    //     "Listening to music at a high volume could cause long-term hearing loss.",
-    //   quality:
-    //     "Music quality is degraded. Increase quality if your connection allows it."
-    // },
   };
 
   // AppBar Log Out Handler
@@ -40,21 +31,17 @@ class App extends React.Component {
     this.setState({ online: !this.state.online }, this.switchNotification);
   };
 
+  // Adds and removes Offline Notification to Notificaions array in STATE.
   switchNotification = () => {
     const { online, notifications } = this.state;
-    const messages = {
-      offline:
-        "Your application is offline. You won't be able to share or stream music to other devices."
-    };
-    if (
-      online === false &&
-      !this.state.notifications.includes(messages.offline)
-    ) {
-      this.setState({ notifications: [...notifications, messages.offline] });
+    const offlineMsg =
+      "Your application is offline. You won't be able to share or stream music to other devices.";
+    if (online === false && !this.state.notifications.includes(offlineMsg)) {
+      this.setState({ notifications: [...notifications, offlineMsg] });
     } else if (online === true) {
       this.setState(prevState => ({
         notifications: prevState.notifications.filter(
-          message => message !== messages.offline
+          message => message !== offlineMsg
         )
       }));
     }
@@ -62,21 +49,23 @@ class App extends React.Component {
 
   // Dashboard Volume Slider Volume
   sliderVolume = e => {
-    this.setState({ volume: parseInt(e.target.outerText) }, this.volumeNotification);
+    this.setState(
+      { volume: parseInt(e.target.outerText) },
+      this.volumeNotification
+    );
   };
 
+  // Adds and removes Volume Notification to Notificaions array in STATE.
   volumeNotification = () => {
     const { volume, notifications } = this.state;
-    const messages = {
-      volume:
-        "Listening to music at a high volume could cause long-term hearing loss."
-    };
+    const volumeMsg =
+      "Listening to music at a high volume could cause long-term hearing loss.";
     if (volume > 80) {
-      this.setState({ notifications: [...notifications, messages.volume] });
+      this.setState({ notifications: [...notifications, volumeMsg] });
     } else {
       this.setState(prevState => ({
         notifications: prevState.notifications.filter(
-          message => message !== messages.volume
+          message => message !== volumeMsg
         )
       }));
     }
@@ -84,29 +73,24 @@ class App extends React.Component {
 
   // Dashboard Quality Selction
   selectQuality = e => {
-    this.setState({ quality: e.target.value });
+    this.setState({ quality: e.target.value }, this.qualityNotification);
   };
 
-  // notificationHandler = () => {
-  //   const { online, volume, quality, notifications } = this.state;
-  //   const messages = {
-  //     offline:
-  //       "Your application is offline. You won't be able to share or stream music to other devices.",
-  //     volume:
-  //       "Listening to music at a high volume could cause long-term hearing loss.",
-  //     quality:
-  //       "Music quality is degraded. Increase quality if your connection allows it."
-  //   };
-
-  //   if (online === false  && !this.state.notifications.includes(messages.offline)) {
-  //     this.setState({ notifications: [...notifications, messages.offline] });
-  //   } else if (online === true) {
-  //     this.setState(prevState => ({
-  //       notifications: prevState.notifications.filter(
-  //         message => message !== messages.offline
-  //       )
-  //     }));
-  //   }
+  // Adds and removes Quality Notification to Notificaions array in STATE.
+  qualityNotification = () => {
+    const { quality, notifications } = this.state;
+    const qualityMsg =
+      "Music quality is degraded. Increase quality if your connection allows it.";
+    if (quality === "low") {
+      this.setState({ notifications: [...notifications, qualityMsg] });
+    } else {
+      this.setState(prevState => ({
+        notifications: prevState.notifications.filter(
+          message => message !== qualityMsg
+        )
+      }));
+    }
+  };
 
   render() {
     const { loggedIn, online, volume, quality, notifications } = this.state;
