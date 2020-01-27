@@ -97,7 +97,11 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <Header loggedIn={loggedIn} logOutHandler={this.logOutHandler} />
+          <Header
+            loggedIn={loggedIn}
+            logOutHandler={this.logOutHandler}
+            notifications={notifications}
+          />
         </div>
         {loggedIn ? (
           <DashBoard

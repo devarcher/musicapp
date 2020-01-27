@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-  const { loggedIn, logOutHandler } = props;
+  const { loggedIn, logOutHandler, notifications } = props;
 
   return (
     <AppBar position="static" className={classes.aBar}>
@@ -34,7 +34,7 @@ export default function ButtonAppBar(props) {
         {loggedIn && (
           <>
             <IconButton color="inherit">
-              <Badge badgeContent={0} color="secondary">
+              <Badge badgeContent={notifications.length} color="secondary">
                 <NotificationsIcon className={classes.notifications} />
               </Badge>
             </IconButton>
