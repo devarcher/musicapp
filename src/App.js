@@ -52,8 +52,19 @@ class App extends React.Component {
 
   notificationHandler = () => {
     const { online, volume, quality, notifications } = this.state;
+    const messages = {
+       offline:
+        "Your application is offline. You won't be able to share or stream music to other devices.",
+      volume:
+        "Listening to music at a high volume could cause long-term hearing loss.",
+      quality:
+        "Music quality is degraded. Increase quality if your connection allows it."
+    }
+
     if (online === false) {
-      this.setState({ notifications: [...notifications, "z "] });
+      this.setState({ notifications: [...notifications, messages.offline] });
+    } else {
+      this.setState(prevState => ({ notifications: prevState.notifications.filter(message => message !== messages.offline) })); 
     }
     if (volume > 80) {
       this.setState({ notifications: [...notifications, "y"] });
