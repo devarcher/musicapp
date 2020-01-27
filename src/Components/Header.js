@@ -4,10 +4,22 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
-
+import { createMuiTheme } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Badge from "@material-ui/core/Badge";
+import { ThemeProvider } from "@material-ui/core/styles";
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#80cbc4"
+    },
+    secondary: {
+      main: "#DC6866"
+    }
+  }
+});
 
 const useStyles = makeStyles(theme => ({
   aBar: {
@@ -17,7 +29,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   notifications: {
-    marginRight: "5px"
+    marginRight: "10px"
   }
 }));
 
@@ -33,11 +45,15 @@ export default function ButtonAppBar(props) {
         </Typography>
         {loggedIn && (
           <>
-            <IconButton color="inherit">
+            <ThemeProvider theme={theme}>
+            <IconButton color="inherit" className={classes.notifications}>
               <Badge badgeContent={notifications.length} color="secondary">
-                <NotificationsIcon className={classes.notifications} />
+                <NotificationsIcon  />
               </Badge>
             </IconButton>
+
+
+            </ThemeProvider>
             <Button
               variant="outlined"
               color="inherit"

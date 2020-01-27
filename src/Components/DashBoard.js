@@ -32,7 +32,7 @@ const theme = createMuiTheme({
       main: "#5A9986"
     },
     secondary: {
-      main: "#5A9986"
+      main: "#C55064"
     }
   }
 });
@@ -123,6 +123,7 @@ const DashBoard = props => {
                 <CardActions>
                   <ThemeProvider theme={theme}>
                     <Switch
+                      color="primary"
                       checked={online}
                       value="online"
                       onClick={e => onlineSwitch(e)}

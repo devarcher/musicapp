@@ -19,7 +19,7 @@ const theme = createMuiTheme({
       main: "#80cbc4"
     },
     secondary: {
-      main: "#BF7D65"
+      main: "#AD7994"
     }
   }
 });
@@ -33,7 +33,7 @@ const useStyles = makeStyles({
   },
 
   avatar: {
-    backgroundColor: "#BF7D65"
+    backgroundColor: "#DC6866"
   },
 
   inputField: {
@@ -41,7 +41,7 @@ const useStyles = makeStyles({
   },
 
   subButton: {
-    backgroundColor: "#BF7D65",
+    backgroundColor: "#DC6866",
     width: "300px",
     "&:hover": {
       background: "#80A690",
