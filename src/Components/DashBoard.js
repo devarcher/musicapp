@@ -1,4 +1,5 @@
 import React from "react";
+import Notifications from "./Notifications";
 
 // General
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -82,12 +83,21 @@ const DashBoard = props => {
     quality,
     onlineSwitch,
     sliderVolume,
-    selectQuality
+    selectQuality,
+    showNotifications,
+    notifications
   } = props;
   return (
     <>
       <CssBaseline>
         <div className={classes.mainBody}>
+          {showNotifications && (
+            <div>
+              {notifications.map((message, index) => (
+                <Notifications key={index} notifications={message} />
+              ))}
+            </div>
+          )}
           <Grid
             container
             spacing={2}

@@ -15,8 +15,13 @@ const useStyles = makeStyles({
 const Notifications = props => {
   const { online, volume, quality, notifications } = props;
   const classes = useStyles();
-  return (
-    <div className={classes.mainContainer}>
+  return <div>{notifications}</div>;
+};
+
+export default Notifications;
+
+{
+  /* <div className={classes.mainContainer}>
       <CssBaseline />
       <Grid
         container
@@ -82,8 +87,5 @@ const Notifications = props => {
           </Grid>
         )}
       </Grid>
-    </div>
-  );
-};
-
-export default Notifications;
+    </div> */
+}

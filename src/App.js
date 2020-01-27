@@ -11,13 +11,20 @@ class App extends React.Component {
     online: true,
     volume: 70,
     quality: "high",
-    notifications: []
+    notifications: [],
+    showNotifications: false
   };
 
   // AppBar Log Out Handler
   logOutHandler = e => {
     e.preventDefault();
     this.setState({ loggedIn: false });
+  };
+
+  // AppBar Show / Hide Notifications
+  toggleNotifications = e => {
+    e.preventDefault();
+    this.setState({ showNotifications: !this.state.showNotifications });
   };
 
   // Login Page Login Handler
@@ -93,7 +100,14 @@ class App extends React.Component {
   };
 
   render() {
-    const { loggedIn, online, volume, quality, notifications } = this.state;
+    const {
+      loggedIn,
+      online,
+      volume,
+      quality,
+      notifications,
+      showNotifications
+    } = this.state;
     return (
       <div>
         <div>
@@ -101,6 +115,8 @@ class App extends React.Component {
             loggedIn={loggedIn}
             logOutHandler={this.logOutHandler}
             notifications={notifications}
+            showNotifications={showNotifications}
+            toggleNotifications={this.toggleNotifications}
           />
         </div>
         {loggedIn ? (
@@ -109,6 +125,7 @@ class App extends React.Component {
             volume={volume}
             quality={quality}
             notifications={notifications}
+            showNotifications={showNotifications}
             onlineSwitch={this.onlineSwitch}
             sliderVolume={this.sliderVolume}
             selectQuality={this.selectQuality}

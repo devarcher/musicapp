@@ -1,4 +1,7 @@
 import React from "react";
+import Notifications from "./Notifications";
+
+// Material UI stuff
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,7 +16,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#80cbc4"
+      main: "#80A690"
     },
     secondary: {
       main: "#DC6866"
@@ -22,9 +25,6 @@ const theme = createMuiTheme({
 });
 
 const useStyles = makeStyles(theme => ({
-  aBar: {
-    backgroundColor: "#80A690"
-  },
   title: {
     flexGrow: 1
   },
@@ -35,37 +35,41 @@ const useStyles = makeStyles(theme => ({
 
 export default function ButtonAppBar(props) {
   const classes = useStyles();
-  const { loggedIn, logOutHandler, notifications } = props;
+  const {
+    loggedIn,
+    logOutHandler,
+    notifications,
+    showNotifications,
+    toggleNotifications
+  } = props;
 
   return (
-    <AppBar position="static" className={classes.aBar}>
-      <Toolbar>
-        <Typography variant="h5" className={classes.title}>
-          Music App
-        </Typography>
-        {loggedIn && (
-          <>
-            <ThemeProvider theme={theme}>
-            <IconButton color="inherit" className={classes.notifications}>
-              <Badge badgeContent={notifications.length} color="secondary">
-                <NotificationsIcon  />
-              </Badge>
-            </IconButton>
-
-
-            </ThemeProvider>
-            <Button
-              variant="outlined"
-              color="inherit"
-              onClick={e => {
-                logOutHandler(e);
-              }}
-            >
-              LOG OUT
-            </Button>
-          </>
-        )}
-      </Toolbar>
-    </AppBar>
+    <ThemeProvider theme={theme}>
+      <AppBar position="static" color="primary">
+        <Toolbar>
+          <Typography variant="h5" className={classes.title}>
+            Music App
+          </Typography>
+          {loggedIn && (
+            <>
+              <IconButton color="inherit" className={classes.notifications}>
+                <Badge badgeContent={notifications.length} color="secondary">
+                  <NotificationsIcon onClick={e => toggleNotifications(e)} />
+                </Badge>
+              </IconButton>
+              <Button
+                variant="outlined"
+                color="inherit"
+                onClick={e => {
+                  logOutHandler(e);
+                }}
+              >
+                LOG OUT
+              </Button>
+            </>
+          )}
+        </Toolbar>
+      </AppBar>
+    </ThemeProvider>
   );
 }
