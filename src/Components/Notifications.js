@@ -11,24 +11,7 @@ import zIndex from "@material-ui/core/styles/zIndex";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
-const useStyles = makeStyles({
-  absoluteContainer: {
-    position: "relative",
-    zIndex: "2",
-    height: "50vh",
-    minWidth: "20vw"
-  },
-  mainContainer: {
-    position: "absolute"
-  },
-  notifications: {
-    position: "absolute",
-    display: "flex",
-    flexDirection: "column",
-    marginRight: "25px",
-    maxWidth: "250px"
-  }
-});
+const useStyles = makeStyles({});
 
 const Notifications = props => {
   const { notifications } = props;

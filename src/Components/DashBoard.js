@@ -93,13 +93,6 @@ const DashBoard = props => {
     <>
       <CssBaseline>
         <div className={classes.mainBody}>
-          {showNotifications && (
-            <div>
-              {notifications.map((message, index) => (
-                <Notifications key={index} notifications={message} />
-              ))}
-            </div>
-          )}
           <Grid
             container
             spacing={2}
@@ -125,13 +118,11 @@ const DashBoard = props => {
                     Online Mode
                   </Typography>
                 </CardContent>
-
                 <CardContent>
                   <Typography component="h3" variant="body1">
                     Is this application connected to the internet?
                   </Typography>
                 </CardContent>
-
                 <CardActions>
                   <ThemeProvider theme={theme}>
                     <Switch
@@ -164,13 +155,11 @@ const DashBoard = props => {
                     Master Volume
                   </Typography>
                 </CardContent>
-
                 <CardContent>
                   <Typography component="h3" variant="body1">
                     Overrides all other sound settings in this application
                   </Typography>
                 </CardContent>
-
                 <CardActions>
                   <ThemeProvider theme={theme}>
                     <Slider
@@ -207,14 +196,12 @@ const DashBoard = props => {
                     Sound Quality
                   </Typography>
                 </CardContent>
-
                 <CardContent>
                   <Typography component="h3" variant="body1">
                     Manually control the music quality in event of poor
                     connection
                   </Typography>
                 </CardContent>
-
                 <CardActions>
                   <ThemeProvider theme={theme}>
                     <FormControl className={classes.formControl}>
