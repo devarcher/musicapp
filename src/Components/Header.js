@@ -15,9 +15,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 
 // Pop Up
 import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
 import Fade from "@material-ui/core/Fade";
-
 
 const theme = createMuiTheme({
   palette: {
@@ -48,20 +46,20 @@ export default function ButtonAppBar(props) {
     showNotifications,
     toggleNotifications
   } = props;
-  
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  
+
   const handleClick = e => {
     setAnchorEl(e.currentTarget);
     toggleNotifications();
   };
-  
+
   const handleClose = () => {
     setAnchorEl(null);
     toggleNotifications();
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <AppBar position="static" color="primary">
@@ -73,7 +71,7 @@ export default function ButtonAppBar(props) {
             <>
               <IconButton color="inherit" className={classes.notifications}>
                 <Badge badgeContent={notifications.length} color="secondary">
-                  <NotificationsIcon onClick={(e) => handleClick(e)} />
+                  <NotificationsIcon onClick={e => handleClick(e)} />
                 </Badge>
                 {showNotifications && (
                   <Menu
@@ -97,9 +95,7 @@ export default function ButtonAppBar(props) {
               <Button
                 variant="outlined"
                 color="inherit"
-                onClick={
-                  logOutHandler
-                }
+                onClick={logOutHandler}
               >
                 LOG OUT
               </Button>

@@ -3,9 +3,8 @@ import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import "typeface-roboto";
-import zIndex from "@material-ui/core/styles/zIndex";
 
 // Cards
 import Card from "@material-ui/core/Card";
@@ -13,7 +12,7 @@ import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles({
   notifications: {
-    maxWidth: "200px",
+    maxWidth: "200px"
   }
 });
 

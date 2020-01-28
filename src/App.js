@@ -121,8 +121,6 @@ class App extends React.Component {
             online={online}
             volume={volume}
             quality={quality}
-            notifications={notifications}
-            showNotifications={showNotifications}
             onlineSwitch={this.onlineSwitch}
             sliderVolume={this.sliderVolume}
             selectQuality={this.selectQuality}

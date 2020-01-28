@@ -1,5 +1,4 @@
 import React from "react";
-import Notifications from "./Notifications";
 
 // General
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -85,9 +84,7 @@ const DashBoard = props => {
     quality,
     onlineSwitch,
     sliderVolume,
-    selectQuality,
-    showNotifications,
-    notifications
+    selectQuality
   } = props;
   return (
     <>
