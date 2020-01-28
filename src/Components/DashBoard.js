@@ -40,16 +40,13 @@ const theme = createMuiTheme({
 // CSS for classes
 const useStyles = makeStyles({
   mainBody: {
-    overflow: "hidden",
-    position: "relative",
-    zIndex: "0"
+    overflow: "hidden"
   },
   cardContainer: {
     height: "",
     ["@media (min-width:960px)"]: {
       height: "70vh"
-    },
-    padding: "15px"
+    }
   },
   cardWrapper: {
     display: "flex",
@@ -125,7 +122,7 @@ const DashBoard = props => {
                     <Switch
                       color="primary"
                       checked={online}
-                      value="online"
+                      value={online}
                       onClick={onlineSwitch}
                     ></Switch>
                   </ThemeProvider>

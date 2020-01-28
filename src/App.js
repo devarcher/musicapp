@@ -64,15 +64,14 @@ class App extends React.Component {
     const { volume, notifications } = this.state;
     const volumeMsg =
       "Listening to music at a high volume could cause long-term hearing loss.";
-    if (volume > 80) {
+    if (volume > 80 && !this.state.notifications.includes(volumeMsg)) {
       this.setState({ notifications: [...notifications, volumeMsg] });
-    } else {
+    } else if (volume <= 80)
       this.setState(prevState => ({
         notifications: prevState.notifications.filter(
           message => message !== volumeMsg
         )
       }));
-    }
   };
 
   // Dashboard Quality Selction
