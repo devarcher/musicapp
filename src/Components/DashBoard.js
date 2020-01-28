@@ -46,7 +46,8 @@ const useStyles = makeStyles({
     height: "",
     ["@media (min-width:960px)"]: {
       height: "70vh"
-    }
+    },
+    padding: "15px",
   },
   cardWrapper: {
     display: "flex",
@@ -75,6 +76,8 @@ const useStyles = makeStyles({
 
 const DashBoard = props => {
   const classes = useStyles();
+
+  // Props
   const {
     online,
     volume,
@@ -87,12 +90,14 @@ const DashBoard = props => {
     <>
       <CssBaseline>
         <div className={classes.mainBody}>
+          {/* Container */}
           <Grid
             container
             spacing={2}
             justify="center"
             className={classes.cardContainer}
           >
+            {/* Online / Offline Card */}
             <Grid
               item
               xs={10}
@@ -130,6 +135,7 @@ const DashBoard = props => {
               </Card>
             </Grid>
 
+            {/* Volume Card */}
             <Grid
               item
               xs={10}
@@ -171,6 +177,7 @@ const DashBoard = props => {
               </Card>
             </Grid>
 
+            {/* Sound Quality Card */}
             <Grid
               item
               xs={10}

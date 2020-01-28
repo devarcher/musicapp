@@ -47,6 +47,7 @@ export default function ButtonAppBar(props) {
     toggleNotifications
   } = props;
 
+  // Popup Menu - Material UI Boilerplate - For Notications
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -75,7 +76,6 @@ export default function ButtonAppBar(props) {
                 </Badge>
                 {showNotifications && notifications.length > 0 && (
                   <Menu
-                    id="fade-menu"
                     anchorEl={anchorEl}
                     keepMounted
                     open={open}
@@ -87,7 +87,6 @@ export default function ButtonAppBar(props) {
                   >
                     {notifications.map((message, index) => (
                       <Notifications
-                        onClick={handleClose}
                         key={index}
                         notifications={message}
                       />
