@@ -11,7 +11,11 @@ import zIndex from "@material-ui/core/styles/zIndex";
 import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 
-const useStyles = makeStyles({});
+const useStyles = makeStyles({
+  notifications: {
+    maxWidth: "200px",
+  }
+});
 
 const Notifications = props => {
   const { notifications } = props;
@@ -24,7 +28,7 @@ const Notifications = props => {
           container
           display="flex"
           justify="flex-end"
-          spacing={2}
+          spacing={4}
           className={classes.mainContainer}
         >
           <Grid item className={classes.notifications}>
@@ -35,8 +39,8 @@ const Notifications = props => {
                   xs={10}
                   sm={10}
                   md={6}
-                  lg={4}
-                  xl={3}
+                  lg={1}
+                  xl={1}
                   variant="subtitle1"
                   padding="20px"
                 >

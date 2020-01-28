@@ -52,8 +52,9 @@ export default function ButtonAppBar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   
-  const handleClick = event => {
-    setAnchorEl(event.currentTarget);
+  const handleClick = e => {
+    setAnchorEl(e.currentTarget);
+    toggleNotifications();
   };
   
   const handleClose = () => {
@@ -71,7 +72,7 @@ export default function ButtonAppBar(props) {
             <>
               <IconButton color="inherit" className={classes.notifications}>
                 <Badge badgeContent={notifications.length} color="secondary">
-                  <NotificationsIcon onClick={toggleNotifications} />
+                  <NotificationsIcon onClick={(e) => handleClick(e)} />
                 </Badge>
                 {showNotifications && (
                   <Menu
