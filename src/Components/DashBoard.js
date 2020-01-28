@@ -30,7 +30,7 @@ import Select from "@material-ui/core/Select";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#5A9986"
+      main: "#679488"
     },
     secondary: {
       main: "#C55064"

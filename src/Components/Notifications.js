@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     minWidth: "20vw"
   },
   mainContainer: {
-    position: "absolute",
+    position: "absolute"
   },
   notifications: {
     position: "absolute",

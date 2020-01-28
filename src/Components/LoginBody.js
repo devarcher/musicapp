@@ -16,7 +16,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#80cbc4"
+      main: "#679488"
     },
     secondary: {
       main: "#AD7994"
@@ -44,7 +44,7 @@ const useStyles = makeStyles({
     backgroundColor: "#DC6866",
     width: "300px",
     "&:hover": {
-      background: "#80A690",
+      background: "#679488",
       transition: ".4s"
     }
   }
