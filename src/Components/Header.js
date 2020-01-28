@@ -71,7 +71,7 @@ export default function ButtonAppBar(props) {
             <>
               <IconButton color="inherit" className={classes.notifications}>
                 <Badge badgeContent={notifications.length} color="secondary">
-                  <NotificationsIcon onClick={e => toggleNotifications(e)} />
+                  <NotificationsIcon onClick={toggleNotifications} />
                 </Badge>
                 {showNotifications && (
                   <Menu
@@ -95,9 +95,9 @@ export default function ButtonAppBar(props) {
               <Button
                 variant="outlined"
                 color="inherit"
-                onClick={e => {
-                  logOutHandler(e);
-                }}
+                onClick={
+                  logOutHandler
+                }
               >
                 LOG OUT
               </Button>

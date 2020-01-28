@@ -16,25 +16,22 @@ class App extends React.Component {
   };
 
   // AppBar Log Out Handler
-  logOutHandler = e => {
-    e.preventDefault();
+  logOutHandler = () => {
     this.setState({ loggedIn: false });
   };
 
   // AppBar Show / Hide Notifications
-  toggleNotifications = e => {
-    e.preventDefault();
+  toggleNotifications = () => {
     this.setState({ showNotifications: !this.state.showNotifications });
   };
 
   // Login Page Login Handler
-  logInHandler = e => {
-    e.preventDefault();
+  logInHandler = () => {
     this.setState({ loggedIn: true });
   };
 
   // Dashboard Online Switch Handler
-  onlineSwitch = e => {
+  onlineSwitch = () => {
     this.setState({ online: !this.state.online }, this.switchNotification);
   };
 

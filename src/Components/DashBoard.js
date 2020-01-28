@@ -129,7 +129,7 @@ const DashBoard = props => {
                       color="primary"
                       checked={online}
                       value="online"
-                      onClick={e => onlineSwitch(e)}
+                      onClick={onlineSwitch}
                     ></Switch>
                   </ThemeProvider>
                 </CardActions>
