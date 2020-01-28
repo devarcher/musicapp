@@ -59,6 +59,7 @@ export default function ButtonAppBar(props) {
   
   const handleClose = () => {
     setAnchorEl(null);
+    toggleNotifications();
   };
   
   return (

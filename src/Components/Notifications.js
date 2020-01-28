@@ -28,11 +28,11 @@ const Notifications = props => {
           container
           display="flex"
           justify="flex-end"
-          spacing={4}
+          spacing={2}
           className={classes.mainContainer}
         >
           <Grid item className={classes.notifications}>
-            <Card>
+            <Card padding="20px">
               <CardContent>
                 <Typography
                   container="h2"
@@ -42,7 +42,6 @@ const Notifications = props => {
                   lg={1}
                   xl={1}
                   variant="subtitle1"
-                  padding="20px"
                 >
                   {notifications}
                 </Typography>
