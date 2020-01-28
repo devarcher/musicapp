@@ -41,7 +41,9 @@ const theme = createMuiTheme({
 // CSS for classes
 const useStyles = makeStyles({
   mainBody: {
-    overflow: "hidden"
+    overflow: "hidden",
+    position: "relative",
+    zIndex: "0"
   },
   cardContainer: {
     height: "",

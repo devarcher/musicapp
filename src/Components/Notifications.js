@@ -5,90 +5,61 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles, ThemeProvider } from "@material-ui/core/styles";
 import "typeface-roboto";
+import zIndex from "@material-ui/core/styles/zIndex";
+
+// Cards
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles({
-  notificationTitle: {
-    borderBottom: "1px solid #5A9986"
-  }, 
+  mainContainer: {
+    position: "absolute",
+    zIndex: "2",
+    height: "75vh",
+  },
+
   notifications: {
-    border: "1px solid red"
-  } 
+    display: "flex",
+    flexDirection: "column",
+    marginRight: "25px",
+    maxWidth: "250px",
+  }
 });
 
 const Notifications = props => {
-  const { online, volume, quality, notifications } = props;
+  const { notifications } = props;
   const classes = useStyles();
-  return <div className={classes.notifications}>{notifications}</div>;
-};
-
-export default Notifications;
-
-{
-  /* <div className={classes.mainContainer}>
+  return (
+    <div>
       <CssBaseline />
       <Grid
         container
         display="flex"
-        direction="column"
-        alignItems="center"
-        justify="center"
+        justify="flex-end"
         spacing={2}
-        className={classes.notifications}
+        className={classes.mainContainer}
       >
-        <Grid item xs={10} sm={7} md={9} lg={6} xl={6}>
-          <Typography
-            component="h1"
-            variant="h4"
-            className={classes.notificationTitle}
-          >
-            Notifications
-          </Typography>
+        <Grid item className={classes.notifications}>
+          <Card>
+            <CardContent>
+              <Typography
+                container="h2"
+                xs={10}
+                sm={10}
+                md={6}
+                lg={4}
+                xl={3}
+                variant="subtitle1"
+                padding="20px"
+              >
+                {notifications}
+              </Typography>
+            </CardContent>
+          </Card>
         </Grid>
-        {online === false && (
-          <Grid
-            item
-            xs={8}
-            sm={5}
-            md={6}
-            lg={4}
-            xl={6}
-            className={classes.notificationsWrapper}
-          >
-            <Typography component="h2" variant="h6">
-              {notifications.offline}
-            </Typography>
-          </Grid>
-        )}
-        {volume > 80 && (
-          <Grid
-            item
-            xs={8}
-            sm={5}
-            md={6}
-            lg={4}
-            xl={6}
-            className={classes.notificationsWrapper}
-          >
-            <Typography component="h2" variant="h6">
-              {notifications.volume}
-            </Typography>
-          </Grid>
-        )}
-        {quality === "low" && (
-          <Grid
-            item
-            xs={8}
-            sm={5}
-            md={6}
-            lg={4}
-            xl={6}
-            className={classes.notificationsWrapper}
-          >
-            <Typography component="h2" variant="h6">
-              {notifications.quality}
-            </Typography>
-          </Grid>
-        )}
       </Grid>
-    </div> */
-}
+    </div>
+  );
+};
+
+export default Notifications;
