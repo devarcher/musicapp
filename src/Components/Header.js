@@ -73,7 +73,7 @@ export default function ButtonAppBar(props) {
                 <Badge badgeContent={notifications.length} color="secondary">
                   <NotificationsIcon onClick={e => handleClick(e)} />
                 </Badge>
-                {showNotifications && (
+                {showNotifications && (notifications.length > 0) && (
                   <Menu
                     id="fade-menu"
                     anchorEl={anchorEl}
@@ -81,7 +81,10 @@ export default function ButtonAppBar(props) {
                     open={open}
                     onClose={handleClose}
                     TransitionComponent={Fade}
-                  >
+                    getContentAnchorEl={null}
+                    anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    transformOrigin={{ vertical: "top", horizontal: "center" }}
+                    >
                     {notifications.map((message, index) => (
                       <Notifications
                         onClick={handleClose}
