@@ -36,13 +36,13 @@ class App extends React.Component {
 
   // Badge Count Aggregator
   badgeCountAdd = () => {
-    this.setState({ badgeCount: this.state.badgeCount + 1 });
+    this.setState(prevState => ({ badgeCount: prevState.badgeCount + 1 }));
   };
 
   // Badge Count Reset
   badgeCountReset = () => {
     if (this.state.showNotifications === true) {
-      this.setState({ badgeCount: (this.state.badgeCount = 0) });
+      this.setState(prevState => ({ badgeCount: prevState.badgeCount = null}));
     }
   };
 
