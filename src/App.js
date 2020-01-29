@@ -15,6 +15,11 @@ class App extends React.Component {
     showNotifications: false,
     badgeCount: 0
   };
+  
+  // Login Page Login Handler
+  logInHandler = () => {
+    this.setState({ loggedIn: true });
+  };
 
   // AppBar Log Out Handler
   logOutHandler = () => {
@@ -27,11 +32,6 @@ class App extends React.Component {
       { showNotifications: !this.state.showNotifications },
       this.badgeCountReset
     );
-  };
-
-  // Login Page Login Handler
-  logInHandler = () => {
-    this.setState({ loggedIn: true });
   };
 
   // Badge Count Aggregator
