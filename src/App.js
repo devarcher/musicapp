@@ -7,7 +7,7 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    loggedIn: true,
+    loggedIn: false,
     online: true,
     volume: 70,
     quality: "high",
@@ -42,7 +42,9 @@ class App extends React.Component {
   // Badge Count Reset
   badgeCountReset = () => {
     if (this.state.showNotifications === true) {
-      this.setState(prevState => ({ badgeCount: prevState.badgeCount = null}));
+      this.setState(prevState => ({
+        badgeCount: (prevState.badgeCount = null)
+      }));
     }
   };
 
