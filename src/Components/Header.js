@@ -39,6 +39,9 @@ const useStyles = makeStyles(theme => ({
   notifications: {
     marginRight: "10px"
   },
+  notifcationsPopup: {
+    marginTop: "15px",
+  },
   notificationCard: {
     display: "flex",
     justifyContent: "center",
@@ -94,10 +97,12 @@ export default function ButtonAppBar(props) {
                     getContentAnchorEl={null}
                     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                     transformOrigin={{ vertical: "top", horizontal: "center" }}
+                    className={classes.notifcationsPopup}
                   >
                     <Card className={classes.notificationCard}>
-                  
-                        <Typography container="h2" variant="h5">• Notifications •</Typography>
+                      <Typography container="h2" variant="h5">
+                        • Notifications •
+                      </Typography>
                     </Card>
 
                     {notifications.map((message, index) => (
