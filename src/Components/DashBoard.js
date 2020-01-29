@@ -37,7 +37,7 @@ const theme = createMuiTheme({
   }
 });
 
-// CSS for classes
+// CSS 
 const useStyles = makeStyles({
   mainBody: {
     overflow: "hidden"
@@ -206,7 +206,7 @@ const DashBoard = props => {
                 <CardActions>
                   <ThemeProvider theme={theme}>
                     <FormControl className={classes.formControl}>
-                      <InputLabel id="demo-simple-select-outlined-label">
+                      <InputLabel>
                         Quality
                       </InputLabel>
                       <Select value={quality} onChange={e => selectQuality(e)}>

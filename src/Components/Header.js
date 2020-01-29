@@ -48,7 +48,7 @@ const useStyles = makeStyles(theme => ({
   },
   notificationsContainer: {
     maxHeight: "550px"
-  },
+  }
 }));
 
 export default function ButtonAppBar(props) {

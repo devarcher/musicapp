@@ -23,7 +23,10 @@ class App extends React.Component {
 
   // AppBar Show / Hide Notifications
   toggleNotifications = () => {
-    this.setState({ showNotifications: !this.state.showNotifications }, this.badgeCountReset);
+    this.setState(
+      { showNotifications: !this.state.showNotifications },
+      this.badgeCountReset
+    );
   };
 
   // Login Page Login Handler
@@ -33,15 +36,15 @@ class App extends React.Component {
 
   // Badge Count Aggregator
   badgeCountAdd = () => {
-    this.setState({ badgeCount: this.state.badgeCount + 1 })
-  }
+    this.setState({ badgeCount: this.state.badgeCount + 1 });
+  };
 
   // Badge Count Reset
   badgeCountReset = () => {
-    if(this.state.showNotifications === true) {
-    this.setState({ badgeCount: this.state.badgeCount = 0 })
+    if (this.state.showNotifications === true) {
+      this.setState({ badgeCount: (this.state.badgeCount = 0) });
     }
-  }
+  };
 
   // Dashboard Online Switch Handler
   onlineSwitch = () => {
@@ -54,7 +57,10 @@ class App extends React.Component {
     const offlineMsg =
       "Your application is offline. You won't be able to share or stream music to other devices.";
     if (online === false) {
-      this.setState({ notifications: [...notifications, offlineMsg] }, this.badgeCountAdd);
+      this.setState(
+        { notifications: [...notifications, offlineMsg] },
+        this.badgeCountAdd
+      );
     }
     // Keep for future projects
     // else if (online === true) {
@@ -80,7 +86,10 @@ class App extends React.Component {
     const volumeMsg =
       "Listening to music at a high volume could cause long-term hearing loss.";
     if (volume > 80) {
-      this.setState({ notifications: [...notifications, volumeMsg] }, this.badgeCountAdd);
+      this.setState(
+        { notifications: [...notifications, volumeMsg] },
+        this.badgeCountAdd
+      );
     }
     // Keep for future projects
     // else if (volume <= 80)
@@ -102,7 +111,10 @@ class App extends React.Component {
     const qualityMsg =
       "Music quality is degraded. Increase quality if your connection allows it.";
     if (quality === "low") {
-      this.setState({ notifications: [...notifications, qualityMsg] }, this.badgeCountAdd);
+      this.setState(
+        { notifications: [...notifications, qualityMsg] },
+        this.badgeCountAdd
+      );
     }
     // Keep for future projects
     // else {
@@ -122,7 +134,7 @@ class App extends React.Component {
       quality,
       notifications,
       showNotifications,
-      badgeCount,
+      badgeCount
     } = this.state;
     return (
       <div>
