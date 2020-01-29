@@ -46,7 +46,8 @@ const useStyles = makeStyles(theme => ({
     display: "flex",
     justifyContent: "center",
     background: "mistyrose",
-    borderBottom: "1px solid #DC6866"
+    borderBottom: "1px solid #DC6866",
+    borderTop: "1px solid #DC6866",
   }
 }));
 
