@@ -13,13 +13,10 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import Badge from "@material-ui/core/Badge";
 import { ThemeProvider } from "@material-ui/core/styles";
 
-// Pop Up
+// Pop Up Menu
 import Menu from "@material-ui/core/Menu";
 import Fade from "@material-ui/core/Fade";
-import Paper from "@material-ui/core/Paper";
-
 import Card from "@material-ui/core/Card";
-import CardContent from "@material-ui/core/CardContent";
 
 const theme = createMuiTheme({
   palette: {
@@ -61,7 +58,8 @@ export default function ButtonAppBar(props) {
     logOutHandler,
     notifications,
     showNotifications,
-    toggleNotifications
+    toggleNotifications,
+    badgeCount
   } = props;
 
   // Popup Menu - Material UI Boilerplate - For Notications
@@ -88,7 +86,7 @@ export default function ButtonAppBar(props) {
           {loggedIn && (
             <>
               <IconButton color="inherit" className={classes.notifications}>
-                <Badge badgeContent={notifications.length} color="secondary">
+                <Badge badgeContent={badgeCount} color="secondary">
                   <NotificationsIcon onClick={e => handleClick(e)} />
                 </Badge>
                 {showNotifications && notifications.length > 0 && (

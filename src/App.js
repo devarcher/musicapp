@@ -12,7 +12,8 @@ class App extends React.Component {
     volume: 70,
     quality: "high",
     notifications: [],
-    showNotifications: false
+    showNotifications: false,
+    badgeCount: 0
   };
 
   // AppBar Log Out Handler
@@ -22,13 +23,25 @@ class App extends React.Component {
 
   // AppBar Show / Hide Notifications
   toggleNotifications = () => {
-    this.setState({ showNotifications: !this.state.showNotifications });
+    this.setState({ showNotifications: !this.state.showNotifications }, this.badgeCountReset);
   };
 
   // Login Page Login Handler
   logInHandler = () => {
     this.setState({ loggedIn: true });
   };
+
+  // Badge Count Aggregator
+  badgeCountAdd = () => {
+    this.setState({ badgeCount: this.state.badgeCount + 1 })
+  }
+
+  // Badge Count Reset
+  badgeCountReset = () => {
+    if(this.state.showNotifications === true) {
+    this.setState({ badgeCount: this.state.badgeCount = 0 })
+    }
+  }
 
   // Dashboard Online Switch Handler
   onlineSwitch = () => {
@@ -41,8 +54,9 @@ class App extends React.Component {
     const offlineMsg =
       "Your application is offline. You won't be able to share or stream music to other devices.";
     if (online === false) {
-      this.setState({ notifications: [...notifications, offlineMsg] });
+      this.setState({ notifications: [...notifications, offlineMsg] }, this.badgeCountAdd);
     }
+    // Keep for future projects
     // else if (online === true) {
     //   this.setState(prevState => ({
     //     notifications: prevState.notifications.filter(
@@ -66,8 +80,9 @@ class App extends React.Component {
     const volumeMsg =
       "Listening to music at a high volume could cause long-term hearing loss.";
     if (volume > 80) {
-      this.setState({ notifications: [...notifications, volumeMsg] });
+      this.setState({ notifications: [...notifications, volumeMsg] }, this.badgeCountAdd);
     }
+    // Keep for future projects
     // else if (volume <= 80)
     //   this.setState(prevState => ({
     //     notifications: prevState.notifications.filter(
@@ -87,8 +102,9 @@ class App extends React.Component {
     const qualityMsg =
       "Music quality is degraded. Increase quality if your connection allows it.";
     if (quality === "low") {
-      this.setState({ notifications: [...notifications, qualityMsg] });
+      this.setState({ notifications: [...notifications, qualityMsg] }, this.badgeCountAdd);
     }
+    // Keep for future projects
     // else {
     //   this.setState(prevState => ({
     //     notifications: prevState.notifications.filter(
@@ -105,7 +121,8 @@ class App extends React.Component {
       volume,
       quality,
       notifications,
-      showNotifications
+      showNotifications,
+      badgeCount,
     } = this.state;
     return (
       <div>
@@ -116,6 +133,7 @@ class App extends React.Component {
             notifications={notifications}
             showNotifications={showNotifications}
             toggleNotifications={this.toggleNotifications}
+            badgeCount={badgeCount}
           />
         </div>
         {loggedIn ? (
