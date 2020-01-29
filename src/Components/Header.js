@@ -40,15 +40,18 @@ const useStyles = makeStyles(theme => ({
     marginRight: "10px"
   },
   notifcationsPopup: {
-    marginTop: "15px",
+    marginTop: "15px"
   },
-  notificationCard: {
+  notificationTitle: {
     display: "flex",
     justifyContent: "center",
     background: "mistyrose",
     borderBottom: "1px solid #DC6866",
-    borderTop: "1px solid #DC6866",
-  }
+    borderTop: "1px solid #DC6866"
+  },
+  notificationsContainer: {
+    maxHeight: "550px"
+  },
 }));
 
 export default function ButtonAppBar(props) {
@@ -100,15 +103,16 @@ export default function ButtonAppBar(props) {
                     transformOrigin={{ vertical: "top", horizontal: "center" }}
                     className={classes.notifcationsPopup}
                   >
-                    <Card className={classes.notificationCard}>
+                    <Card className={classes.notificationTitle}>
                       <Typography container="h2" variant="h5">
                         • Notifications •
                       </Typography>
                     </Card>
-
-                    {notifications.map((message, index) => (
-                      <Notifications key={index} notifications={message} />
-                    ))}
+                    <div className={classes.notificationsContainer}>
+                      {notifications.map((message, index) => (
+                        <Notifications key={index} notifications={message} />
+                      ))}
+                    </div>
                   </Menu>
                 )}
               </IconButton>

@@ -40,15 +40,16 @@ class App extends React.Component {
     const { online, notifications } = this.state;
     const offlineMsg =
       "Your application is offline. You won't be able to share or stream music to other devices.";
-    if (online === false && !this.state.notifications.includes(offlineMsg)) {
+    if (online === false) {
       this.setState({ notifications: [...notifications, offlineMsg] });
-    } else if (online === true) {
-      this.setState(prevState => ({
-        notifications: prevState.notifications.filter(
-          message => message !== offlineMsg
-        )
-      }));
     }
+    // else if (online === true) {
+    //   this.setState(prevState => ({
+    //     notifications: prevState.notifications.filter(
+    //       message => message !== offlineMsg
+    //     )
+    //   }));
+    // }
   };
 
   // Dashboard Volume Slider Volume
@@ -64,14 +65,15 @@ class App extends React.Component {
     const { volume, notifications } = this.state;
     const volumeMsg =
       "Listening to music at a high volume could cause long-term hearing loss.";
-    if (volume > 80 && !this.state.notifications.includes(volumeMsg)) {
+    if (volume > 80) {
       this.setState({ notifications: [...notifications, volumeMsg] });
-    } else if (volume <= 80)
-      this.setState(prevState => ({
-        notifications: prevState.notifications.filter(
-          message => message !== volumeMsg
-        )
-      }));
+    }
+    // else if (volume <= 80)
+    //   this.setState(prevState => ({
+    //     notifications: prevState.notifications.filter(
+    //       message => message !== volumeMsg
+    //     )
+    //   }));
   };
 
   // Dashboard Quality Selction
@@ -86,13 +88,14 @@ class App extends React.Component {
       "Music quality is degraded. Increase quality if your connection allows it.";
     if (quality === "low") {
       this.setState({ notifications: [...notifications, qualityMsg] });
-    } else {
-      this.setState(prevState => ({
-        notifications: prevState.notifications.filter(
-          message => message !== qualityMsg
-        )
-      }));
     }
+    // else {
+    //   this.setState(prevState => ({
+    //     notifications: prevState.notifications.filter(
+    //       message => message !== qualityMsg
+    //     )
+    //   }));
+    // }
   };
 
   render() {
