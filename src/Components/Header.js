@@ -16,6 +16,10 @@ import { ThemeProvider } from "@material-ui/core/styles";
 // Pop Up
 import Menu from "@material-ui/core/Menu";
 import Fade from "@material-ui/core/Fade";
+import Paper from "@material-ui/core/Paper";
+
+import Card from "@material-ui/core/Card";
+import CardContent from "@material-ui/core/CardContent";
 
 const theme = createMuiTheme({
   palette: {
@@ -34,6 +38,12 @@ const useStyles = makeStyles(theme => ({
   },
   notifications: {
     marginRight: "10px"
+  },
+  notificationCard: {
+    display: "flex",
+    justifyContent: "center",
+    background: "mistyrose",
+    borderBottom: "1px solid #DC6866"
   }
 }));
 
@@ -85,11 +95,13 @@ export default function ButtonAppBar(props) {
                     anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
                     transformOrigin={{ vertical: "top", horizontal: "center" }}
                   >
+                    <Card className={classes.notificationCard}>
+                  
+                        <Typography container="h2" variant="h5">• Notifications •</Typography>
+                    </Card>
+
                     {notifications.map((message, index) => (
-                      <Notifications
-                        key={index}
-                        notifications={message}
-                      />
+                      <Notifications key={index} notifications={message} />
                     ))}
                   </Menu>
                 )}

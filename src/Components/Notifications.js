@@ -12,7 +12,7 @@ import CardContent from "@material-ui/core/CardContent";
 
 const useStyles = makeStyles({
   notifications: {
-    maxWidth: "200px"
+    maxWidth: "450px"
   }
 });
 

@@ -7,7 +7,7 @@ import "./App.css";
 
 class App extends React.Component {
   state = {
-    loggedIn: false,
+    loggedIn: true,
     online: true,
     volume: 70,
     quality: "high",
