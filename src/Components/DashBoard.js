@@ -47,7 +47,7 @@ const useStyles = makeStyles({
     ["@media (min-width:960px)"]: {
       height: "70vh"
     },
-    padding: "15px",
+    padding: "15px"
   },
   cardWrapper: {
     display: "flex",

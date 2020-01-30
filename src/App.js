@@ -15,7 +15,7 @@ class App extends React.Component {
     showNotifications: false,
     badgeCount: 0
   };
-  
+
   // Login Page Login Handler
   logInHandler = () => {
     this.setState({ loggedIn: true });
@@ -36,7 +36,7 @@ class App extends React.Component {
 
   // Badge Count Aggregator
   badgeCountAdd = () => {
-    this.setState(prevState => ({ badgeCount: prevState.badgeCount + 1 }));
+    this.setState({ badgeCount: this.state.badgeCount + 1 });
   };
 
   // Badge Count Reset
@@ -59,10 +59,8 @@ class App extends React.Component {
     const offlineMsg =
       "Your application is offline. You won't be able to share or stream music to other devices.";
     if (online === false) {
-      this.setState(
-        { notifications: [...notifications, offlineMsg] },
-        this.badgeCountAdd
-      );
+      this.setState({ notifications: [...notifications, offlineMsg] });
+      this.badgeCountAdd();
     }
     // Keep for future projects
     // else if (online === true) {
@@ -76,10 +74,7 @@ class App extends React.Component {
 
   // Dashboard Volume Slider Volume
   sliderVolume = (e, value) => {
-    this.setState(
-      { volume: value },
-      this.volumeNotification
-    );
+    this.setState({ volume: value }, this.volumeNotification);
   };
 
   // Adds and removes Volume Notification to Notificaions array in STATE.
