@@ -47,7 +47,7 @@ const useStyles = makeStyles({
     ["@media (min-width:960px)"]: {
       height: "70vh"
     },
-    padding: "15px"
+    padding: "15px",
   },
   cardWrapper: {
     display: "flex",
@@ -165,12 +165,12 @@ const DashBoard = props => {
                     <Slider
                       className={classes.slider}
                       valueLabelDisplay="auto"
-                      defaultValue={volume}
+                      value={volume}
                       step={10}
                       marks
                       min={0}
                       max={100}
-                      onChangeCommitted={e => sliderVolume(e)}
+                      onChangeCommitted={(e, value) => sliderVolume(e, value)}
                     />
                   </ThemeProvider>
                 </CardActions>

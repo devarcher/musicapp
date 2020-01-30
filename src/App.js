@@ -75,9 +75,9 @@ class App extends React.Component {
   };
 
   // Dashboard Volume Slider Volume
-  sliderVolume = e => {
+  sliderVolume = (e, value) => {
     this.setState(
-      { volume: parseInt(e.target.outerText) },
+      { volume: value },
       this.volumeNotification
     );
   };
