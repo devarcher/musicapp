@@ -86,6 +86,7 @@ const DashBoard = props => {
     sliderVolume,
     selectQuality
   } = props;
+
   return (
     <>
       <CssBaseline>
@@ -165,7 +166,7 @@ const DashBoard = props => {
                     <Slider
                       className={classes.slider}
                       valueLabelDisplay="auto"
-                      value={volume}
+                      defaultValue={volume}
                       step={10}
                       marks
                       min={0}

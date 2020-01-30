@@ -72,9 +72,14 @@ class App extends React.Component {
     // }
   };
 
-  // Dashboard Volume Slider Volume
+  // Dashboard Volume Slider Volume (Both options use onChangeCommitted to reduce state Change)
   sliderVolume = (e, value) => {
-    this.setState({ volume: value }, this.volumeNotification);
+    
+    // Slider movement is smooth - but not a controlled component
+    this.setState({ volume: parseInt(e.target.outerText) }, this.volumeNotification);
+
+    // Controlled Component, but slider behavior not smooth. UI is sticky and not pleasant.
+    //  this.setState({ volume: value }, this.volumeNotification);
   };
 
   // Adds and removes Volume Notification to Notificaions array in STATE.
